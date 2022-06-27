@@ -1,0 +1,27 @@
+@import './config';
+
+.parent-container{
+    display: flex;
+    height: 100vh;;
+}
+.children-container-one{
+    flex: 3;
+}
+.bgimg {
+    position: relative;
+    img{
+        width: 890px;
+        height: 100vh;
+    }
+    .quote {
+        font-size: 40px;
+        color: $secondary-color;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.children-container-two{
+    flex:1;
+}
