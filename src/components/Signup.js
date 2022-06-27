@@ -2,6 +2,7 @@ import React from "react";
 import "../sass/signup.scss";
 import GoogleSignUp from './Googlelogin'
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const {
