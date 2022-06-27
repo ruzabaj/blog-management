@@ -10,7 +10,7 @@
 .bgimg {
     position: relative;
     img{
-        width: 890px;
+        width: 900px;
         height: 100vh;
     }
     .quote {
@@ -24,4 +24,12 @@
 }
 .children-container-two{
     flex:1;
+}
+.form-password{
+    display: flex;
+    justify-content: space-between;
+    a{
+        text-decoration: none;
+        color: $primary-color;
+    }
 }

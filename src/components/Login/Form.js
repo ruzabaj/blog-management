@@ -19,24 +19,6 @@ const Form = () => {
           <div className="form">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">
-                <div className="form-username">
-                  <label>Username</label>
-                </div>
-                {/* onChange={onChange}  name={name} onBlur={onBlur}  ref={ref} */}
-                <input
-                  type="text"
-                  {...register("Username", {
-                    required: true,
-                    maxLength: 20,
-                    minLength: 5,
-                    onChange: (e) => console.log(e),
-                  })}
-                />
-                {errors.Username && (
-                  <div className="error-message">This field is required</div>
-                )}
-              </div>
-              <div className="form-group">
                 <div className="form-email">
                   <label>Email</label>
                 </div>
@@ -56,6 +38,7 @@ const Form = () => {
               <div className="form-group">
                 <div className="form-password">
                   <label>Password</label>
+                  <a href="forgot-pw">Forgot password?</a>
                 </div>
                 <input
                   type="password"
@@ -76,7 +59,7 @@ const Form = () => {
                 <div className="btn-create-acc">
                   <input type="submit" />
                   <button type="submit" className="create-account">
-                    Create an Account
+                   Login
                   </button>
                 </div>
                 <div className="btn-signup-google">
@@ -86,9 +69,9 @@ const Form = () => {
                 </div>
               </div>
               <div className="link-login">
-                <p>Already have an account?</p>
+                <p>Not a member?</p>
                 <span>
-                  <a href="log-in">Log in</a>
+                  <a href="log-in">Sign Up</a>
                 </span>
               </div>
             </form>

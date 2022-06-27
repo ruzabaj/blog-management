@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/login.scss";
+// import "../../sass/login.scss";
 
 const index = () => {
   return (
