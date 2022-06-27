@@ -40,24 +40,38 @@ input[type=password]{
     outline: 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-.btn-create-acc{
+.btn-create-acc
+{
     text-align: center;
 
     button{
-        width: 150px;
+        width: 250px;
         height: 35px;
         border: 0;
         outline: 0;
-        border-radius: 10px;
         background-color: black;
         color:white;
         margin: auto;
         text-align: center;
     }
 }
+.btn-signup-google{
+    margin-top: 10px;
+    text-align: center;
+    button{
+        width: 250px;
+        height: 35px;
+        outline: 0;
+        color: black;
+        background-color:white;
+        margin: auto;
+        text-align: center;
+    }
+}
 .link-login{
-    display: flex;
+    text-align: center;
     a{
+        text-align: center;
         text-decoration: none;
         color: black;
     }
