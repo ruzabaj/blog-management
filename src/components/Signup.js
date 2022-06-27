@@ -32,8 +32,21 @@ const Signup = () => {
               </div>
               <input type="password" name="password" />
             </div>
-            <div className="btn-create-acc">
-                <button type="submit" className="create-account">Create an Account</button>
+            <div className="btn">
+              <div className="btn-create-acc">
+                <button type="submit" className="create-account">
+                  Create an Account
+                </button>
+              </div>
+              <div className="btn-signup-google">
+                <button type="submit" className="create-account">
+                  Sign Up with Google
+                </button>
+              </div>
+            </div>
+            <div className="link-login">
+                <p>Already have an account?</p>
+                <a href="log-in">Log in</a>
             </div>
           </form>
         </div>
