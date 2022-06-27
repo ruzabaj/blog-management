@@ -32,6 +32,7 @@ const Signup = () => {
               </div>
               <input type="password" name="password" />
             </div>
+            <button type="submit">Create an Account</button>
           </form>
         </div>
       </div>
