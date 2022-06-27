@@ -11,7 +11,7 @@ const Signup = () => {
         </div>
       </div>
       <div className="signup-right-container">
-        <h3>Create an Account</h3>
+        <h1>Create an Account</h1>
         <p>Let's get started with your 30 day free trial.</p>
         <div className="signup-form">
           <div className="form">
