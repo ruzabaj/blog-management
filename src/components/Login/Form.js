@@ -9,14 +9,15 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>  {
+    // alert(JSON.stringify(data)),
+     console.log(data)};
 
   return (
     <div>
 <div>
       <div className="signup-right-container">
-        <h1>Create an Account</h1>
-        <p>Let's get started with your 30 day free trial.</p>
+        <p>Welcome to Creativity, please put your login credentials below to start using the app.</p>
 
         <div className="signup-form">
           <div className="form">
@@ -49,7 +50,7 @@ const Form = () => {
                   {...register("password", {
                     required: true,
                     pattern:
-                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                      /^[a-zA-Z0-9+_.-]/,
                   })}
                 />
                 {errors.password && (
@@ -60,7 +61,8 @@ const Form = () => {
               </div>
               <div className="btn">
                 <div className="btn-create-acc">
-                  <input type="submit" />
+                  <input type="checkbox"/>
+                  <label>Remember me</label>
                   <button type="submit" className="create-account">
                    Login
                   </button>

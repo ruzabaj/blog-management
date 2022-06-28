@@ -9,11 +9,13 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -55,6 +57,7 @@ const Signup = () => {
                   name="email"
                   {...register("Email", {
                     required: true,
+                    
                     pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/,
                   })}
                 />
@@ -72,8 +75,29 @@ const Signup = () => {
                   name="password"
                   {...register("password", {
                     required: true,
+                    minLength: 8,
                     pattern:
-                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/,
+                  })}
+                />
+                {errors.password && (
+                  <div className="error-message">
+                    Password should have at least 8 character
+                  </div>
+                )}
+              </div>
+              <div className="form-group">
+                <div className="form-password">
+                  <label>Confirm Password</label>
+                </div>
+                <input
+                  type="password"
+                  name="confirm-password"
+                  {...register("confirm-password", {
+                    required: true,
+                    minLength: 8,
+                    pattern:
+                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/,
                   })}
                 />
                 {errors.password && (
@@ -84,7 +108,6 @@ const Signup = () => {
               </div>
               <div className="btn">
                 <div className="btn-create-acc">
-                  <input type="submit" />
                   <button type="submit" className="create-account">
                     Create an Account
                   </button>
