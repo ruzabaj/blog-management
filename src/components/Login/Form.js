@@ -67,11 +67,6 @@ const Form = () => {
                    Login
                   </button>
                 </div>
-                <div className="btn-signup-google">
-                  {/* <button className="create-account">
-                  </button> */}
-                  {/* <GoogleSignUp/> */}
-                </div>
               </div>
               <div className="link-login">
                 <p>Not a member?</p>
