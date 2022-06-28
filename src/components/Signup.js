@@ -5,6 +5,9 @@ import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Icon from "../components/FontAwesomeIcons/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import "../sass/icon.scss";
 
 const Signup = () => {
   const [password, setPassword] = useState("");
@@ -13,6 +16,15 @@ const Signup = () => {
   const [passwordEye, setPasswordEye] = useState(false);
   const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
 
+  const handleClick = () => {
+    setPasswordEye(!passwordEye);
+    alert("clicked");
+  };
+
+  const handleClickConfirm = () => {
+    setConfirmPasswordEye(!confirmPasswordEye);
+    alert("clicked confirm");
+  };
 
   const {
     register,
@@ -32,7 +44,7 @@ const Signup = () => {
   // const password = useRef({});
   // password.current = watch("password", "");
   // const password = watch("password");
-  
+
   return (
     <div className="signup-container">
       <div className="bg-img">
@@ -59,10 +71,12 @@ const Signup = () => {
                     onChange: (e) => console.log(e),
                   })}
                 />
+                
                 {errors.Username && (
                   <div className="error-message">This field is required</div>
                 )}
               </div>
+
               <div className="form-group">
                 <div className="form-email">
                   <label>Email</label>
@@ -70,9 +84,8 @@ const Signup = () => {
                 <input
                   type="text"
                   name="email"
-                  {...register("Email", {
+                  {...register("email", {
                     required: true,
-
                     pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/,
                   })}
                 />
@@ -86,7 +99,7 @@ const Signup = () => {
                   <label>Password</label>
                 </div>
                 <input
-                  type="password"
+                  type={(passwordEye===false)?"text":"password"}
                   name="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -96,6 +109,15 @@ const Signup = () => {
                     pattern: /^/,
                   })}
                 />
+                {passwordEye === false ? (
+                  <div className="password-seen">
+                    <FontAwesomeIcon icon={faEye} onClick={handleClick} />
+                  </div>
+                ) : (
+                  <div className="password-unseen">
+                    <FontAwesomeIcon icon={faEyeSlash} onClick={handleClick} />
+                  </div>
+                )}
                 {errors.password && (
                   <div className="error-message">
                     Password should have at least 8 character
@@ -103,21 +125,22 @@ const Signup = () => {
                 )}
               </div>
 
-              <Icon/>
+              {/* <Icon /> */}
 
               <div className="form-group">
                 <div className="form-password">
                   <label>Confirm Password</label>
                 </div>
                 <input
+                  // type={(confirmPasswordEye===false)?"text":"password"}
                   type="password"
                   name="confirmPassword"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  onPaste={(e) => {
-                    e.preventDefault();
-                    return false;
-                  }}
+                  // onPaste={(e) => {
+                  //   e.preventDefault();
+                  //   return false;
+                  // }}
                   // className={`h-14 rounded-lg ${errors.password && "focus:border-red-500"}`}
                   {...register("confirm-password", {
                     required: true,
@@ -125,12 +148,21 @@ const Signup = () => {
                     pattern: /^/,
                   })}
                 />
+                {confirmPasswordEye === false ? (
+                  <div className="password-seen">
+                    <FontAwesomeIcon icon={faEye} onClick={handleClickConfirm} />
+                  </div>
+                ) : (
+                  <div className="password-unseen">
+                    <FontAwesomeIcon icon={faEyeSlash} onClick={handleClickConfirm} />
+                  </div>
+                )}
                 {errors.confirmPassword && (
                   <div className="error-message">Password does not match.</div>
                 )}
               </div>
-             
-                    <Icon/>
+
+              {/* <Icon /> */}
               <div className="btn">
                 <div className="btn-create-acc">
                   <button type="submit" className="create-account">

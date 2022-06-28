@@ -1,19 +1,27 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import '../../sass/icon.scss';
+import "../../sass/icon.scss";
 
-const index = () => {
+const Index = () => {
+  const [passwordEye, setPasswordEye] = useState(false);
+//   const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
+
+  const handleClick = () => {
+    setPasswordEye(!passwordEye);
+    alert("clicked")
+  };
   return (
     <div className="eye-icon">
-                <div className="password-seen">
-                  <FontAwesomeIcon icon={faEye} />
-                </div>
-                <div className="password-closed">
-                  <FontAwesomeIcon icon={faEyeSlash} />
-                </div>
-              </div>
-  )
-}
+      <div className="password-seen">
+        <FontAwesomeIcon icon={faEye} onClick={handleClick} />
+      </div>
+      <div className="password-closed">
+        <FontAwesomeIcon icon={faEyeSlash} onClick={handleClick} />
+      </div>
+    </div>
+  );
+};
 
-export default index
+export default Index;
