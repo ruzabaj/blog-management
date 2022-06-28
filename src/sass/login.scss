@@ -25,6 +25,16 @@
 .children-container-two{
     flex:1;
 }
+.login-container{
+    height: 100vh;
+
+    .signup-right-container{
+            border:2px solid brown;
+            position: absolute;
+            left: 59%;
+            top: 10%;
+        }
+}
 .form-password{
     display: flex;
     justify-content: space-between;

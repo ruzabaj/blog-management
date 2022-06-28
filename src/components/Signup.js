@@ -25,6 +25,7 @@ const Signup = () => {
         <div className="quote">Explore your Creativity!</div>
       </div>
       <div className="signup-right-container">
+        
         <h1>Create an Account</h1>
         <p>Let's get started with your 30 day free trial.</p>
 
