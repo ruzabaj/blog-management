@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import {Link} from 'react-router-dom';
+import Router from '../../Router'
 
 const Form = () => {
   const {
@@ -11,6 +13,7 @@ const Form = () => {
 
   return (
     <div>
+<div>
       <div className="signup-right-container">
         <h1>Create an Account</h1>
         <p>Let's get started with your 30 day free trial.</p>
@@ -71,7 +74,7 @@ const Form = () => {
               <div className="link-login">
                 <p>Not a member?</p>
                 <span>
-                  <a href="log-in">Sign Up</a>
+                  <Link to="/signup">Sign Up</Link>
                 </span>
               </div>
             </form>
@@ -79,6 +82,8 @@ const Form = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

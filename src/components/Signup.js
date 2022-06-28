@@ -3,6 +3,7 @@ import "../sass/signup.scss";
 import GoogleSignUp from './Googlelogin'
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import Router from "../Router";
 
 const Signup = () => {
   const {
@@ -10,7 +11,6 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  //   const { onChange, onBlur, name, ref } = register("firstName");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -33,7 +33,6 @@ const Signup = () => {
                 <div className="form-username">
                   <label>Username</label>
                 </div>
-                {/* onChange={onChange}  name={name} onBlur={onBlur}  ref={ref} */}
                 <input
                   type="text"
                   {...register("Username", {
@@ -79,7 +78,7 @@ const Signup = () => {
                 />
                 {errors.password && (
                   <div className="error-message">
-                    Pawword should have at least 8 character
+                    Password should have at least 8 character
                   </div>
                 )}
               </div>
@@ -99,13 +98,15 @@ const Signup = () => {
               <div className="link-login">
                 <p>Already have an account?</p>
                 <span>
-                  <a href="log-in">Log in</a>
+                  <Link to="/login">Log in</Link>
                 </span>
               </div>
+              
             </form>
           </div>
         </div>
       </div>
+     
     </div>
   );
 };
