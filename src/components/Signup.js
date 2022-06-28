@@ -4,16 +4,15 @@ import GoogleSignUp from "./Googlelogin";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+import Icon from "../components/FontAwesomeIcons/index";
 
 const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [passwordEye, setPasswordEye] =useState(false);
-  const [confirmPasswordEye, setConfirmPasswordEye]= useState(false);
-  // const password = watch("password");
+  const [passwordEye, setPasswordEye] = useState(false);
+  const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
+
 
   const {
     register,
@@ -30,9 +29,10 @@ const Signup = () => {
     reset();
   };
 
-  // const pw = useRef({});
-  // pw.current = watch("password", "");
-
+  // const password = useRef({});
+  // password.current = watch("password", "");
+  // const password = watch("password");
+  
   return (
     <div className="signup-container">
       <div className="bg-img">
@@ -103,12 +103,7 @@ const Signup = () => {
                 )}
               </div>
 
-              <div className="password-seen">
-                <FontAwesomeIcon icon={faEye} />
-              </div>
-              <div className="password-closed">
-                <FontAwesomeIcon icon={faEyeSlash} />
-              </div>
+              <Icon/>
 
               <div className="form-group">
                 <div className="form-password">
@@ -134,14 +129,8 @@ const Signup = () => {
                   <div className="error-message">Password does not match.</div>
                 )}
               </div>
-
-              <div className="password-seen">
-                <FontAwesomeIcon icon={faEye} />
-              </div>
-              <div className="password-closed">
-                <FontAwesomeIcon icon={faEyeSlash} />
-              </div>
-              
+             
+                    <Icon/>
               <div className="btn">
                 <div className="btn-create-acc">
                   <button type="submit" className="create-account">
