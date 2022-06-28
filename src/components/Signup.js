@@ -1,22 +1,37 @@
 import React from "react";
 import "../sass/signup.scss";
-import GoogleSignUp from './Googlelogin'
+import GoogleSignUp from "./Googlelogin";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Router from "../Router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
 const Signup = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [passwordEye, setPasswordEye] =useState(false);
+  const [confirmPasswordEye, setConfirmPasswordEye]= useState(false);
+  // const password = watch("password");
+
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: onchange,
+  });
 
   const onSubmit = (data) => {
     console.log(data);
     reset();
   };
+
+  // const pw = useRef({});
+  // pw.current = watch("password", "");
 
   return (
     <div className="signup-container">
@@ -25,7 +40,6 @@ const Signup = () => {
         <div className="quote">Explore your Creativity!</div>
       </div>
       <div className="signup-right-container">
-        
         <h1>Create an Account</h1>
         <p>Let's get started with your 30 day free trial.</p>
 
@@ -58,7 +72,7 @@ const Signup = () => {
                   name="email"
                   {...register("Email", {
                     required: true,
-                    
+
                     pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/,
                   })}
                 />
@@ -74,11 +88,12 @@ const Signup = () => {
                 <input
                   type="password"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   {...register("password", {
                     required: true,
                     minLength: 8,
-                    pattern:
-                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/,
+                    pattern: /^/,
                   })}
                 />
                 {errors.password && (
@@ -87,26 +102,46 @@ const Signup = () => {
                   </div>
                 )}
               </div>
+
+              <div className="password-seen">
+                <FontAwesomeIcon icon={faEye} />
+              </div>
+              <div className="password-closed">
+                <FontAwesomeIcon icon={faEyeSlash} />
+              </div>
+
               <div className="form-group">
                 <div className="form-password">
                   <label>Confirm Password</label>
                 </div>
                 <input
                   type="password"
-                  name="confirm-password"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onPaste={(e) => {
+                    e.preventDefault();
+                    return false;
+                  }}
+                  // className={`h-14 rounded-lg ${errors.password && "focus:border-red-500"}`}
                   {...register("confirm-password", {
                     required: true,
                     minLength: 8,
-                    pattern:
-                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/,
+                    pattern: /^/,
                   })}
                 />
-                {errors.password && (
-                  <div className="error-message">
-                    Password should have at least 8 character
-                  </div>
+                {errors.confirmPassword && (
+                  <div className="error-message">Password does not match.</div>
                 )}
               </div>
+
+              <div className="password-seen">
+                <FontAwesomeIcon icon={faEye} />
+              </div>
+              <div className="password-closed">
+                <FontAwesomeIcon icon={faEyeSlash} />
+              </div>
+              
               <div className="btn">
                 <div className="btn-create-acc">
                   <button type="submit" className="create-account">
@@ -114,9 +149,7 @@ const Signup = () => {
                   </button>
                 </div>
                 <div className="btn-signup-google">
-                  {/* <button className="create-account">
-                  </button> */}
-                  <GoogleSignUp/>
+                  <GoogleSignUp />
                 </div>
               </div>
               <div className="link-login">
@@ -125,12 +158,10 @@ const Signup = () => {
                   <Link to="/login">Log in</Link>
                 </span>
               </div>
-              
             </form>
           </div>
         </div>
       </div>
-     
     </div>
   );
 };

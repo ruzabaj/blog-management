@@ -1,8 +1,6 @@
-import Signup from "./components/Signup";
-import Login from "./components/Login/Login";
-import Router from "./Router/index";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 function App() {
   let navigate =useNavigate();
@@ -12,9 +10,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-
-    </div>
+    <div className="App">    </div>
   );
 }
 
