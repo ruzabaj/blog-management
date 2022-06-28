@@ -22,7 +22,7 @@ const Signup = () => {
     <div className="signup-container">
       <div className="bg-img">
         <img src="background.jpg" alt="background" />
-        <div className="quote">Explore your creativity!</div>
+        <div className="quote">Explore your Creativity!</div>
       </div>
       <div className="signup-right-container">
         <h1>Create an Account</h1>

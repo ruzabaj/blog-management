@@ -17,6 +17,7 @@ const Form = () => {
     <div>
 <div>
       <div className="signup-right-container">
+        <h2>Hello, Again!</h2>
         <p>Welcome to Creativity, please put your login credentials below to start using the app.</p>
 
         <div className="signup-form">
@@ -60,10 +61,10 @@ const Form = () => {
                 )}
               </div>
               <div className="btn">
-                <div className="btn-create-acc">
                   <input type="checkbox"/>
                   <label>Remember me</label>
-                  <button type="submit" className="create-account">
+                <div className="btn-create-acc">
+                  <button type="submit" className="login-button">
                    Login
                   </button>
                 </div>
