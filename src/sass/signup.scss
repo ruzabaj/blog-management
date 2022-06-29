@@ -56,34 +56,38 @@ input[type=password]{
     outline: 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-.btn-create-acc
-{
-    text-align: center;
+.btn{
+    margin-top: 40px;
+    .btn-create-acc
+    {
+        text-align: center;
+    
+        button{
+            width: 250px;
+            height: 45px;
+            border: 0;
+            outline: 0;
+            background-color: $primary-color;
+            color:$secondary-color;
+            margin: auto;
+            text-align: center;
+        }
+    }
+    .btn-signup-google{
+        margin-top: 10px;
+        text-align: center;
+        button{
+            width: 250px;
+            height: 35px;
+            outline: 0;
+            color: $primary-color;
+            background-color:$secondary-color;
+            margin: auto;
+            text-align: center;
+        }
+    }
+}
 
-    button{
-        width: 250px;
-        height: 45px;
-        border: 0;
-        outline: 0;
-        background-color: $primary-color;
-        color:$secondary-color;
-        margin: auto;
-        text-align: center;
-    }
-}
-.btn-signup-google{
-    margin-top: 10px;
-    text-align: center;
-    button{
-        width: 250px;
-        height: 35px;
-        outline: 0;
-        color: $primary-color;
-        background-color:$secondary-color;
-        margin: auto;
-        text-align: center;
-    }
-}
 .link-login{
     text-align: center;
     a{

@@ -42,17 +42,21 @@
         color: $primary-color;
     }
 }
-.btn-create-acc
-{
-    text-align: center;
-.login-button{
-        width: 250px;
-        height: 45px;
-        border: 0;
-        outline: 0;
-        background-color: $primary-color;
-        color:$secondary-color;
+.btn{
+    margin-top: 10px;
+    
+    .btn-create-acc
+    {
         text-align: center;
-        margin-top: 20px;
-}
+    .login-button{
+            width: 250px;
+            height: 45px;
+            border: 0;
+            outline: 0;
+            background-color: $primary-color;
+            color:$secondary-color;
+            text-align: center;
+            margin-top: 20px;
+    }
+    }
 }

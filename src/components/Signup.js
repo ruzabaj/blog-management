@@ -4,32 +4,25 @@ import GoogleSignUp from "./Googlelogin";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Icon from "../components/FontAwesomeIcons/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "../sass/icon.scss";
 
 const Signup = () => {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   const [passwordEye, setPasswordEye] = useState(false);
   const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
 
   const handleClick = () => {
     setPasswordEye(!passwordEye);
-    alert("clicked");
   };
 
   const handleClickConfirm = () => {
     setConfirmPasswordEye(!confirmPasswordEye);
-    alert("clicked confirm");
   };
 
   const {
     register,
     handleSubmit,
-    reset,
     watch,
     formState: { errors },
   } = useForm({
@@ -38,13 +31,16 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    reset();
   };
 
-  // const password = useRef({});
-  // password.current = watch("password", "");
-  // const password = watch("password");
+  // same as useState as it preserve value doesn't rerender 
+  const emailChanges = useRef({});
 
+  const passwordRef = useRef({});
+  passwordRef.current = watch('password');
+  const confirm = watch(['password','confirmPassword']);
+  console.log(confirm);
+  
   return (
     <div className="signup-container">
       <div className="bg-img">
@@ -68,7 +64,6 @@ const Signup = () => {
                     required: true,
                     maxLength: 20,
                     minLength: 5,
-                    onChange: (e) => console.log(e),
                   })}
                 />
                 
@@ -83,13 +78,14 @@ const Signup = () => {
                 </div>
                 <input
                   type="text"
-                  name="email"
+                  id=" emailChanges "
+                  ref={emailChanges}
                   {...register("email", {
                     required: true,
                     pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/,
                   })}
                 />
-                {errors.Email && (
+                {errors.email && (
                   <div className="error-message">Use correct email format</div>
                 )}
               </div>
@@ -99,15 +95,8 @@ const Signup = () => {
                   <label>Password</label>
                 </div>
                 <input
-                  type={(passwordEye===false)?"text":"password"}
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  {...register("password", {
-                    required: true,
-                    minLength: 8,
-                    pattern: /^/,
-                  })}
+                type={(passwordEye===false)?"text":"password"}
+                {...register('password')}
                 />
                 {passwordEye === false ? (
                   <div className="password-seen">
@@ -125,28 +114,15 @@ const Signup = () => {
                 )}
               </div>
 
-              {/* <Icon /> */}
-
               <div className="form-group">
                 <div className="form-password">
                   <label>Confirm Password</label>
                 </div>
                 <input
-                  // type={(confirmPasswordEye===false)?"text":"password"}
-                  type="password"
-                  name="confirmPassword"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  // onPaste={(e) => {
-                  //   e.preventDefault();
-                  //   return false;
-                  // }}
-                  // className={`h-14 rounded-lg ${errors.password && "focus:border-red-500"}`}
-                  {...register("confirm-password", {
-                    required: true,
-                    minLength: 8,
-                    pattern: /^/,
-                  })}
+                  type={(confirmPasswordEye===false)?"text":"password"}
+                  {...register("confirmPassword",
+                  {validate: value => value === passwordRef.current || "password doesnot match"}
+                  )}
                 />
                 {confirmPasswordEye === false ? (
                   <div className="password-seen">
@@ -162,7 +138,6 @@ const Signup = () => {
                 )}
               </div>
 
-              {/* <Icon /> */}
               <div className="btn">
                 <div className="btn-create-acc">
                   <button type="submit" className="create-account">
