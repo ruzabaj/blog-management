@@ -33,6 +33,7 @@ const Signup = () => {
     console.log(data);
   };
 
+
   // same as useState as it preserve value doesn't rerender 
   const emailChanges = useRef({});
 
@@ -64,7 +65,7 @@ const Signup = () => {
                     required: true,
                     maxLength: 20,
                     minLength: 5,
-                  })}
+                  })} 
                 />
                 
                 {errors.Username && (
