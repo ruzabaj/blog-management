@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
+import Sidebar from "./components/Dashboard/sidebar";
 import { BrowserRouter as Router , Routes, Route} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,6 +18,7 @@ root.render(
         <Route exact path="/signup" element={<Signup />}></Route>
       </Routes>
     </Router>
+    <Sidebar/>
   </React.StrictMode>
 );
 
