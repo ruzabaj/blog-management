@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Form = () => {
   const {
@@ -15,6 +15,11 @@ const Form = () => {
   const onSubmit = (data) => {
     // alert(JSON.stringify(data)),
     console.log(data);
+  };
+  const navigate= useNavigate();
+
+  const handleClick=() =>{
+    navigate('/dashboard')
   };
 
   return (
@@ -70,7 +75,7 @@ const Form = () => {
                 {console.log(checked,"value of check using usestate hook")}
                 <label>Remember me</label>
                 <div className="btn-create-acc">
-                  <button type="submit" className="login-button">
+                  <button type="submit" className="login-button" onClick={handleClick}>
                     Login
                   </button>
                 </div>

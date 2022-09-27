@@ -1,10 +1,12 @@
 import React from 'react';
-import Dashboard from './Pages/Dashboard';
 
 const Sidebar = () => {
   return (
-    <div>Sidebar
-        <Dashboard/>
+    <div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Contact</li>
+        </ul>
     </div>
   )
 }
