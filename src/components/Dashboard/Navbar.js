@@ -5,7 +5,7 @@ const Sidebar = () => {
     <div>
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="Navbar">Navbar</a>
+    <a class="navbar-brand" href="Navbar">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,18 +15,16 @@ const Sidebar = () => {
           <a class="nav-link active" aria-current="page" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="feature">Features</a>
+          <a class="nav-link" href="feature">Details</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="price">Pricing</a>
-        </li>
+       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+            More
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="action" >Action</a></li>
-            <li><a class="dropdown-item" href="another">Another action</a></li>
+            <li><a class="dropdown-item" href="action" >Contact</a></li>
+            <li><a class="dropdown-item" href="another">Location</a></li>
           </ul>
         </li>
       </ul>
