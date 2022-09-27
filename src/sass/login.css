@@ -1,0 +1,63 @@
+.parent-container {
+  display: flex;
+  height: 100vh;
+}
+
+.children-container-one {
+  flex: 3;
+}
+
+.bgimg {
+  position: relative;
+}
+.bgimg img {
+  width: 900px;
+  height: 100vh;
+}
+.bgimg .quote {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.children-container-two {
+  flex: 1;
+}
+
+.login-container {
+  height: 100vh;
+}
+.login-container .signup-right-container {
+  position: absolute;
+  left: 59%;
+  top: 10%;
+}
+
+.form-password {
+  display: flex;
+  justify-content: space-between;
+}
+.form-password a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn {
+  margin-top: 10px;
+}
+.btn .btn-create-acc {
+  text-align: center;
+}
+.btn .btn-create-acc .login-button {
+  width: 250px;
+  height: 45px;
+  border: 0;
+  outline: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}/*# sourceMappingURL=login.css.map */

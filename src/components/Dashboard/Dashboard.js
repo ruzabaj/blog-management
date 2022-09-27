@@ -7,7 +7,7 @@ const Dashboard = () => {
     <div>
       <Sidebar />
       <div class="card">
-        <img src="user-profile.jpg" className="card-img" alt="user-profile" />
+        <img src="user-profile.png" className="card-img" alt="user-profile" />
         <div class="card-body">
           <h5 class="card-title">User Profile</h5>
           <p class="card-text">
