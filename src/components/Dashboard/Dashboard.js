@@ -6,17 +6,15 @@ const Dashboard = () => {
   return (
     <div>
       <Sidebar />
-      <h2>You have entered in the dashboard</h2>
       <div class="card">
         <img src="user-profile.jpg" className="card-img" alt="user-profile" />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">User Profile</h5>
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            User Detail of Eployee
           </p>
           <button className="btn-user-profile">
-            User Profile
+            More
           </button>
         </div>
       </div>
