@@ -16,9 +16,9 @@ const Home = () => {
       <div class="card">
         <img src="user-profile.png" className="card-img" alt="user-profile" />
         <div class="card-body">
-          <h5 class="card-title">User Profile</h5>
+          <h5 class="card-title">Title</h5>
           <p class="card-text">
-            User Detail of Eployee
+            Blogs
           </p>
           <button className="btn-user-profile">
             More
