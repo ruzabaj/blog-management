@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard/Dashboard";
-import { BrowserRouter as Router , Routes, Route} from "react-router-dom";
-import Home from "./components/Home";
-import Contact from "./components/Contact";
+import Home from "./components/Dashboard/Home";
+import Contact from "./components/Dashboard/Contact";
+import Create from "./components/Dashboard/Create";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,8 +19,9 @@ root.render(
         <Route path="/" element={<Login/>} />
         <Route exact path="/signup" element={<Signup />}></Route>
         <Route exact path="/dashboard" element={<Dashboard/>}></Route>
-        <Route exact path="/home" element={<Home/>}></Route>
-        <Route exact path="/contact" element={<Contact/>}></Route>
+        <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/contact" element={<Contact />}></Route>
+          <Route exact path="/create" element={<Create />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>

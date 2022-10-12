@@ -43,7 +43,9 @@
     }
 }
 .btn{
-    margin-top: 10px;
+    margin-top: 10px; 
+    display: grid;
+    place-items: center;
     
     .btn-create-acc
     {
