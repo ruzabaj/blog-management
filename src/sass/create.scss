@@ -1,4 +1,27 @@
+@import './config';
+
 .create-blog{
     height: 30px;
     width: 30px;
+}
+.manuals{
+    display: flex;
+    justify-content: space-between;
+}
+.text-area{
+    display: flex;
+    flex-direction: column;
+}
+.category{
+    width:100px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.post{
+    height: 50px;
+    width: 100px;
+    background-color: $theme-color;
+    border-radius: 1px solid transparent;
+    border-radius: 10px;
+
 }
