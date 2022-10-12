@@ -1,4 +1,4 @@
-export const Userdata=[
+export const User=[
     {
         id:10001,
         image:'profile-one.jpg',

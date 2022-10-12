@@ -1,11 +1,19 @@
-import React from "react";
-import Sidebar from "./Navbar";
+import React, {useState} from "react";
+import Navbar from "./Navbar";
+import Home from '../Home/index';
+import Contact from '../Contact/index';
+import Graph from "./Chart/GraphChart";
 import "../../sass/card.scss";
+import {User} from "../../Data"
 
 const Dashboard = () => {
+  // const [userData, setUserData] = useState({
+  //   labels: ,
+  //   datasets: []
+  // })
   return (
     <div>
-      <Sidebar />
+      <Navbar/>
       <div class="card">
         <img src="user-profile.png" className="card-img" alt="user-profile" />
         <div class="card-body">
@@ -18,6 +26,9 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
+      <Home/>
+      <Contact/>
+      {/* <Graph chartData={User}/> */}
     </div>
   );
 };

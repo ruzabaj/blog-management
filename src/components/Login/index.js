@@ -5,7 +5,7 @@ const index = () => {
     <div className="bgimg">
       <img src="background.jpg" alt="background" />
       <div className="quote">
-        Employee Management System
+        Explore your Creativity!
         </div>
      
     </div>
