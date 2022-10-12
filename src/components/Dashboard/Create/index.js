@@ -1,8 +1,9 @@
 import React from 'react'
+import "../../../sass/create.scss";
 
 const Create = () => {
   return (
-    <div>Create
+    <div>
       <img src="add.png" alt="add" className="create-blog"/>
     </div>
   )

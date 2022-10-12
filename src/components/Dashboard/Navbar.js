@@ -6,9 +6,9 @@ import "../../sass/navbar.scss";
 const Sidebar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg">
+      <nav>
         <div class="container-nav">
-        <img src="logo.jpg" alt="logo" className="logo"/>
+          <img src="logo.jpg" alt="logo" className="logo" />
           <button
             class="navbar-toggler"
             type="button"
@@ -20,24 +20,24 @@ const Sidebar = () => {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div className="navbar-pages">
-            <div>
-              <ul class="navbar-nav">
-                <li class="nav-item">
+          <div className="navbar-item">
+              <ul className="nav-item">
+                <li className="nav-item-list">
                   <Link to="/home">Home</Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/create">Create</Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/contact">Contact</Link>
                 </li>
               </ul>
-            </div>
-            <div>
-              <Link to="/"><img src="login-profile.png" alt="login" className="profile" /></Link>
-            </div>
           </div>
+            <div className="">
+              <Link to="/">
+                <img src="login-profile.png" alt="login" className="profile" />
+              </Link>
+            </div>
         </div>
       </nav>
     </div>

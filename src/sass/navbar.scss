@@ -1,8 +1,31 @@
+@import './config';
+
+nav{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: $theme-color;
+}
 .container-nav{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .navbar-pages{
     display: flex;
     text-align: center;
     align-items: center;
 }
+
+ul{
+    list-style:none;
+    display: flex;
+    align-items: center;
+    margin-left: -10px;
+    li{
+        padding: 10px 20px;
+    }
+    a{
+        text-decoration: none;
+        color: $secondary-color;
+    }
+}
+
