@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import Navbar from "./Navbar";
-import Home from '../Home/index';
-import Contact from '../Contact/index';
 import Graph from "./Chart/GraphChart";
 import "../../sass/card.scss";
 import {User} from "../../Data"
@@ -26,8 +24,6 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <Home/>
-      <Contact/>
       {/* <Graph chartData={User}/> */}
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -12,10 +13,10 @@ const Sidebar = () => {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home">Home</a>
+          <Link to ="/home">Home</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="feature">Details</a>
+          <Link to ="/create">Create</Link>
         </li>
        
         <li class="nav-item dropdown">
@@ -23,7 +24,7 @@ const Sidebar = () => {
             More
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="action" >Contact</a></li>
+            <Link to ="/contact">Contact</Link>
             <li><a class="dropdown-item" href="another">Location</a></li>
           </ul>
         </li>
