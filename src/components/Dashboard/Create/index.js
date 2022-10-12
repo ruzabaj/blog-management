@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../../sass/create.scss";
 import Dropdown from "react-dropdown";
+import Navbar from "../Navbar";
 
 const Create = () => {
   const options = [
@@ -15,23 +16,39 @@ const Create = () => {
   };
   return (
     <div>
+      <Navbar />
+      <div className="bg-write">
+        <img src=" write-bg.jpg" alt="bg" className="background-create" />
+      </div>
       <div className="manuals">
-      <img src="add.png" alt="add" className="create-blog" />
-      <Dropdown
-        className="category"
-        id="category"
-        options={options}
-        onChange={handleChange}
-        value={value}
-        placeholder="Select an option"
+        <img src="add.png" alt="add" className="create-blog" />
+        <Dropdown
+          className="category"
+          id="category"
+          options={options}
+          onChange={handleChange}
+          value={value}
+          placeholder="Select an option"
         />
-      <p> Category {value}</p>
-      <button className="post">POST</button>
+        <p> Category {value}</p>
+        <button className="post">POST</button>
       </div>
 
       <div className="text-area">
-        <textarea rows="1" cols="0" minLength="05" maxLength="20" placeholder="Title"/>
-        <textarea rows="20" cols="1" minLength="100" maxLength="2000" placeholder="Write something here…"/>
+        <textarea
+          rows="1"
+          cols="0"
+          minLength="05"
+          maxLength="20"
+          placeholder="Title"
+        />
+        <textarea
+          rows="20"
+          cols="1"
+          minLength="100"
+          maxLength="2000"
+          placeholder="Write something here…"
+        />
       </div>
     </div>
   );

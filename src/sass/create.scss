@@ -8,6 +8,15 @@
     display: flex;
     justify-content: space-between;
 }
+.bg-write{
+    display: grid;
+    place-items: center;
+}
+.background-create{
+    width: 800px;
+    height: 300px;
+    object-fit: cover;
+}
 .text-area{
     display: flex;
     flex-direction: column;
