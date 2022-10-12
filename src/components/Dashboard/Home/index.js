@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Navbar from "../Navbar";
-import "../../../sass/card.scss";
+import "../../../sass/home.scss";
 
 const Home = () => {
   // const [userData, setUserData] = useState({
