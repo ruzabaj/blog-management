@@ -19,7 +19,7 @@ const Create = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-write">
+      <div className="create-bg">
         <img src=" write-bg.jpg" alt="bg" className="background-create" />
       </div>
       <div className="create-width">
