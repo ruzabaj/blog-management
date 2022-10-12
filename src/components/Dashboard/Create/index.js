@@ -20,35 +20,41 @@ const Create = () => {
       <div className="bg-write">
         <img src=" write-bg.jpg" alt="bg" className="background-create" />
       </div>
-      <div className="manuals">
-        <img src="add.png" alt="add" className="create-blog" />
-        <Dropdown
-          className="category"
-          id="category"
-          options={options}
-          onChange={handleChange}
-          value={value}
-          placeholder="Select an option"
-        />
-        <p> Category {value}</p>
-        <button className="post">POST</button>
-      </div>
+      <div className="create-width">
+        <div className="create-center-align">
+          <div className="manuals">
+            <div className="create-blog-category">
+            <img src="add.png" alt="add" className="create-blog" />
+            <Dropdown
+              className="category"
+              id="category"
+              options={options}
+              onChange={handleChange}
+              value={value}
+              placeholder="Select a category"
+              
+              />
+              </div>
+            <button className="post">POST</button>
+          </div>
 
-      <div className="text-area">
-        <textarea
-          rows="1"
-          cols="0"
-          minLength="05"
-          maxLength="20"
-          placeholder="Title"
-        />
-        <textarea
-          rows="20"
-          cols="1"
-          minLength="100"
-          maxLength="2000"
-          placeholder="Write something here…"
-        />
+          <div className="text-area">
+            <textarea
+              rows="1"
+              cols="0"
+              minLength="05"
+              maxLength="20"
+              placeholder="Title"
+            />
+            <textarea
+              rows="20"
+              cols="1"
+              minLength="100"
+              maxLength="2000"
+              placeholder="Write something here…"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
