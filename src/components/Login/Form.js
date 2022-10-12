@@ -19,7 +19,7 @@ const Form = () => {
   const navigate= useNavigate();
 
   const handleClick=() =>{
-    navigate('/dashboard')
+    navigate('/home')
   };
 
   return (

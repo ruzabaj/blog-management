@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
-import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./components/Dashboard/Home";
 import Contact from "./components/Dashboard/Contact";
 import Create from "./components/Dashboard/Create";
@@ -18,7 +17,6 @@ root.render(
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route exact path="/signup" element={<Signup />}></Route>
-        <Route exact path="/dashboard" element={<Dashboard/>}></Route>
         <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/contact" element={<Contact />}></Route>
           <Route exact path="/create" element={<Create />}></Route>
