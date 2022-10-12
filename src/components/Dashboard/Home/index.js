@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Navbar from "../Navbar";
+import Footer from "../footer";
 import "../../../sass/home.scss";
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      {/* <Graph chartData={User}/> */}
+      <Footer/>
     </div>
   );
 };
