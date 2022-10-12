@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../../../sass/create.scss";
 import Dropdown from "react-dropdown";
 import Navbar from "../Navbar";
+import Footer from "../footer";
 
 const Create = () => {
   const options = [
     { value: "Time", label: "Time" },
-    { value: "Two", label: "Music", },
+    { value: "Two", label: "Music" },
     { value: "Three", label: "Comedy" },
     { value: "Four", label: "Life" },
     { value: "Five", label: "Style" },
@@ -16,6 +17,11 @@ const Create = () => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+
+  const uploadImage = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <div>
       <Navbar />
@@ -26,17 +32,26 @@ const Create = () => {
         <div className="create-center-align">
           <div className="manuals">
             <div className="create-blog-category">
-            <img src="add.png" alt="add" className="create-blog" />
-            <Dropdown
-              className="category"
-              id="category"
-              options={options}
-              onChange={handleChange}
-              value={value}
-              placeholder="Select a category"
+        {/* <button onClick={uploadImage}>
+               <img src="add.png" alt="add" className="create-blog" />
+          <input type="file" />
+        </button> */}
+      <button>
+      <img src="add.png" alt="add" className="create-blog" />
+        <input type="file"
+         style={{display:"none"}}
+         />
+      </button>
               
+              <Dropdown
+                className="category"
+                id="category"
+                options={options}
+                onChange={handleChange}
+                value={value}
+                placeholder="Select a category"
               />
-              </div>
+            </div>
             <button className="post">POST</button>
           </div>
 
@@ -58,6 +73,7 @@ const Create = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
