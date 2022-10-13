@@ -64,7 +64,7 @@ const Create = () => {
               placeholder="Title"
             />
             <textarea
-              rows="20"
+              rows="10"
               cols="1"
               minLength="100"
               maxLength="2000"
