@@ -1,14 +1,18 @@
-import React from "react";
+import React,{useEffect} from "react";
 // import  {useState} from "react";
 import Navbar from "../Navbar";
 import Footer from "../footer";
 import "../../../sass/home.scss";
+// import axios from "axios";
 
 const Home = () => {
   // const [userData, setUserData] = useState({
   //   labels: ,
   //   datasets: []
   // })
+  useEffect(()=>{
+    // axios.get('http://localhost:5000/blog/')
+  },[])
   return (
     <div>
       <Navbar/>

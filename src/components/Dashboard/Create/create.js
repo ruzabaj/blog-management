@@ -26,7 +26,7 @@ const Create = () => {
       };
       const handlePost=()=>{
         //handle API
-        axios.post('');
+        // axios.post('http://localhost:5000/blog/post');
       }
 
       const fileInputField = useRef(null)
