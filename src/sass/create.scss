@@ -8,7 +8,9 @@
     height: 500px;
   }
 }
-
+input[type="text"]{
+  cursor: pointer;
+}
 .create-width {
   display: grid;
 
