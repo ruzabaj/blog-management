@@ -2,7 +2,7 @@
 
 nav{
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-color: $theme-color;
+    background-color: var(--theme-color);
     position: sticky;
     top: 0;
 }
@@ -27,7 +27,7 @@ ul{
     }
     a{
         text-decoration: none;
-        color: $secondary-color;
+        color: var(--nav-text);
         font-size: 20px;
     }
 }

@@ -1,5 +1,7 @@
 @import "./config";
-
+body{
+  background-color: var(--bg-clr);
+}
 .create-bg{
   display: grid;
   place-items: center;

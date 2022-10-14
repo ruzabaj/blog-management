@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,19 @@ import "../../sass/navbar.scss";
 
 const Sidebar = () => {
   const [bright, setBright] =useState(false);
+  const [theme, setTheme] =useState("light-theme");
+
+  useEffect(()=>{
+    document.body.className=theme;
+  },[theme]);
 
   const switchMode = () => {
     setBright(!bright)
-    console.log("clicked")
-    alert("hi");
+    console.log("clicked",theme)
+    theme === "light-theme"?      setTheme("dark-theme")    :     setTheme("light-theme")
+    
   };
+
   return (
     <div>
       <nav>

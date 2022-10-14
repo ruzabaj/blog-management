@@ -5,11 +5,13 @@ $danger: red;
 $theme-color:rgba(88,160,196, 0.5);
 
 .dark-theme{
-    --bg-clr:black;
+    --bg-clr:rgba(68, 64, 64, 0.475);
     --text:white;
-    --theme-color:rgb(88,160,196);
+    --theme-color:rgb(3, 66, 183);
     --btn:blue;
     --nav-text:black;
+    --home-more-btn: rgb(140, 140, 190);
+
 }
 .light-theme{
     --bg-clr:white;
@@ -17,5 +19,6 @@ $theme-color:rgba(88,160,196, 0.5);
     --theme-color:rgba(88,160,196, 0.5);
     --btn:rgba(88,160,196, 0.5);
     --nav-text:white;
+    --home-more-btn: rgb(69, 69, 202);
 }
 // var(--bg-clr)
