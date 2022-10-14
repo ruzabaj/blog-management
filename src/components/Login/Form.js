@@ -66,7 +66,7 @@ const Form = () => {
                 />
                 {errors.password && (
                   <div className="error-message">
-                    Pawword should have at least 8 character
+                    Password should have at least 8 character
                   </div>
                 )}
               </div>

@@ -10,7 +10,6 @@ const Index = () => {
 
   const handleClick = () => {
     setPasswordEye(!passwordEye);
-    alert("clicked")
   };
   return (
     <div className="eye-icon">

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import "../../sass/profile.scss";
 import "../../sass/navbar.scss";
 
+
 const Sidebar = () => {
+  const [bright, setBright] =useState(false);
+
+  const brightMode = () => {
+    setBright(!bright)
+  };
   return (
     <div>
       <nav>
@@ -28,7 +36,8 @@ const Sidebar = () => {
                 <img src="login-profile.png" alt="login" className="profile" />
               </Link>
               <button className="toggle">
-                TOGGLE
+                <FontAwesomeIcon icon={faSun} onClick={brightMode} />
+                <FontAwesomeIcon icon={faMoon} />
               </button>
             </div>
           </div>
