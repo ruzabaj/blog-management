@@ -27,6 +27,9 @@ const Sidebar = () => {
               <Link to="/">
                 <img src="login-profile.png" alt="login" className="profile" />
               </Link>
+              <button className="toggle">
+                TOGGLE
+              </button>
             </div>
           </div>
         </div>
