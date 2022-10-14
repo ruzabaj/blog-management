@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState , useRef} from 'react';
 import Dropdown from "react-dropdown";
 import "../../../sass/create.scss";
@@ -21,8 +22,12 @@ const Create = () => {
       const  [file, setFile]= useState(false);
     
       const fileUpload = (event) => {
-        setFile(event.target.files[0].name);
+        setFile(event.target.value[0]);
       };
+      const handlePost=()=>{
+        //handle API
+        axios.post('');
+      }
 
       const fileInputField = useRef(null)
 
@@ -39,11 +44,11 @@ const Create = () => {
                 <input type="file" 
                 onChange={fileUpload}
                 ref={fileInputField}
-                style={{ display: "none" }} 
+                // style={{ display: "none" }} 
                 />
-              <button>
+              {/* <button>
                 <img src="add.png" alt="add" className="create-blog" />
-              </button>
+              </button> */}
 
               <Dropdown
                 className="category"
@@ -54,7 +59,7 @@ const Create = () => {
                 placeholder="Select a category"
               />
             </div>
-            <button className="post">POST</button>
+            <button className="post" onClick={handlePost}>POST</button>
           </div>
 
           <div className="text-area">

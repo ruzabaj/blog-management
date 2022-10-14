@@ -7,9 +7,9 @@ $theme-color:rgba(88,160,196, 0.5);
 .dark-theme{
     --bg-clr:rgba(68, 64, 64, 0.475);
     --text:white;
-    --theme-color:rgb(3, 66, 183);
+    --theme-color:rgba(0, 0, 0, 0.637);
     --btn:blue;
-    --nav-text:black;
+    --nav-text:white;
     --home-more-btn: rgb(140, 140, 190);
 
 }
@@ -21,4 +21,3 @@ $theme-color:rgba(88,160,196, 0.5);
     --nav-text:white;
     --home-more-btn: rgb(69, 69, 202);
 }
-// var(--bg-clr)

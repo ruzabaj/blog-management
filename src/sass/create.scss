@@ -56,6 +56,13 @@ input[type="text"]{
       display: flex;
       flex-direction: column;
       margin: 10px;
+      textarea{
+        margin: 20px 0px;
+        background-color: var(--bg-clr);
+        ::placeholder{
+          color: var(--text);
+        }
+      }
     }
   }
 }
