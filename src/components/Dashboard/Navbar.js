@@ -9,8 +9,10 @@ import "../../sass/navbar.scss";
 const Sidebar = () => {
   const [bright, setBright] =useState(false);
 
-  const brightMode = () => {
+  const switchMode = () => {
     setBright(!bright)
+    console.log("clicked")
+    alert("hi");
   };
   return (
     <div>
@@ -35,10 +37,13 @@ const Sidebar = () => {
               <Link to="/">
                 <img src="login-profile.png" alt="login" className="profile" />
               </Link>
-              <button className="toggle">
-                <FontAwesomeIcon icon={faSun} onClick={brightMode} />
-                <FontAwesomeIcon icon={faMoon} />
-              </button>
+              {bright === false ?
+              
+              <FontAwesomeIcon icon={faMoon} onClick={switchMode} style={{color:"white"}}/>
+              :
+
+                <FontAwesomeIcon icon={faSun} onClick={switchMode} style={{color:"white"}}/>
+            }
             </div>
           </div>
         </div>
