@@ -3,3 +3,17 @@ $secondary-color:white;
 $tertiary-color:grey;
 $danger: red;
 $theme-color:rgba(88,160,196, 0.5);
+
+.dark-theme{
+    --bg-clr:black;
+    --text:white;
+    --nav:rgb(88,160,196);
+    --btn:blue;
+}
+.light-theme{
+    --bg-clr:white;
+    --text:black;
+    --nav:rgba(88,160,196, 0.5);
+    --btn:rgba(88,160,196, 0.5);
+}
+// var(--bg-clr)
