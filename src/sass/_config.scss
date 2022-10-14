@@ -7,13 +7,15 @@ $theme-color:rgba(88,160,196, 0.5);
 .dark-theme{
     --bg-clr:black;
     --text:white;
-    --nav:rgb(88,160,196);
+    --theme-color:rgb(88,160,196);
     --btn:blue;
+    --nav-text:black;
 }
 .light-theme{
     --bg-clr:white;
     --text:black;
-    --nav:rgba(88,160,196, 0.5);
+    --theme-color:rgba(88,160,196, 0.5);
     --btn:rgba(88,160,196, 0.5);
+    --nav-text:white;
 }
 // var(--bg-clr)

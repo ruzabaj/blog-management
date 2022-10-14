@@ -1,11 +1,11 @@
 @import './config';
 
 .footer{
-    background-color: $theme-color;
+    background-color: var(--theme-color);
     height: 70px;
     width: 100%;
 }
 p{
     text-align: center;
-    color:$secondary-color;
+    color:var(--nav-text);
 }
