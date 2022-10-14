@@ -12,10 +12,10 @@ const Create = () => {
         { value: "Four", label: "Life" },
         { value: "Five", label: "Style" },
       ];
-      const [value, setValue] = useState("");
+      const [category, setCategory] = useState("");
     
       const handleChange = (e) => {
-        setValue(e.target.value);
+        setCategory(e.target.value);
       };
 
       //for  uploading file
@@ -44,6 +44,7 @@ const Create = () => {
                 <input type="file" 
                 onChange={fileUpload}
                 ref={fileInputField}
+                className="post"
                 // style={{ display: "none" }} 
                 />
               {/* <button>
@@ -54,8 +55,8 @@ const Create = () => {
                 className="category"
                 id="category"
                 options={options}
-                onChange={handleChange}
-                value={value}
+                onClick={handleChange}
+                value={category}
                 placeholder="Select a category"
               />
             </div>
@@ -71,8 +72,8 @@ const Create = () => {
               placeholder="Title"
             />
             <textarea
-              rows="10"
-              cols="1"
+              rows="05"
+              cols="0"
               minLength="100"
               maxLength="2000"
               placeholder="Write something here…"

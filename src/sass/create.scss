@@ -37,7 +37,19 @@ input[type="text"]{
             align-items: center;
             justify-content: center;
             border: 2px solid var(--theme-color);
+            background-color: var(--theme-color);
+            color:var(--nav-text);
             border-radius: 10px;
+            .Dropdown-option{
+              border: 1px solid var(--bg-clr);
+              border-radius: 10px;
+            }
+            .Dropdown-option:hover{
+              filter: brightness(1.2);
+              border-radius: 10px;
+              background-color: var(--bg-clr);
+              color: var(--text);
+            }
         }
     }
     
@@ -46,9 +58,9 @@ input[type="text"]{
         height: 50px;
         width: 100px;
         background-color: var(--theme-color);
+        color:var(--nav-text);
         border: 1px solid transparent;
         border-radius: 10px;
-        color:$secondary-color;
       }
     }
 
@@ -58,11 +70,15 @@ input[type="text"]{
       margin: 10px;
       textarea{
         margin: 20px 0px;
+        border-radius: 20px;
         background-color: var(--bg-clr);
-        ::placeholder{
-          color: var(--text);
-        }
+        color: var(--text);
+        padding: 05px 10px ;
       }
     }
   }
+}
+textarea::placeholder{
+  color: var(--text);
+  padding: 02px 10px;
 }

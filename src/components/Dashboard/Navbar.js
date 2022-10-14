@@ -46,10 +46,10 @@ const Sidebar = () => {
               </Link>
               {bright === false ?
               
-              <FontAwesomeIcon icon={faMoon} onClick={switchMode} style={{color:"white"}}/>
+              <FontAwesomeIcon icon={faMoon} onClick={switchMode} style={{color:"white", margin:"0px 10px"}}/>
               :
 
-                <FontAwesomeIcon icon={faSun} onClick={switchMode} style={{color:"white"}}/>
+                <FontAwesomeIcon icon={faSun} onClick={switchMode} style={{color:"white", margin:"0px 10px"}}/>
             }
             </div>
           </div>
