@@ -70,6 +70,7 @@ const Create = () => {
               minLength="05"
               maxLength="20"
               placeholder="Title"
+              className='title'
             />
             <textarea
               rows="05"
@@ -77,6 +78,7 @@ const Create = () => {
               minLength="100"
               maxLength="2000"
               placeholder="Write something here…"
+              className='description'
             />
           </div>
         </div>
