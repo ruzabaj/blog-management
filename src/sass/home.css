@@ -80,7 +80,7 @@ body {
   border-radius: 10px;
   border: 1px none;
   padding: 10px;
-  margin-top: -1px;
+  margin-top: 2px;
 }
 .card .card-body .read-edit-delete .btn-edit {
   background-color: transparent;
@@ -95,4 +95,8 @@ body {
   height: 90px;
   overflow: hidden;
   color: black;
+}
+
+.carousel-item {
+  height: 500px;
 }/*# sourceMappingURL=home.css.map */

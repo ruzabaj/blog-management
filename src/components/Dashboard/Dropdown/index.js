@@ -11,6 +11,9 @@ const Dropdown = () => {
     }
   return (
     <div>
+       <div className="home-bg">
+        <img src="blog.jpg" alt="home-bg" className="home-bg-img" />
+      </div>
          <FontAwesomeIcon icon={faPlus} onClick={toggleDropdown}/>
     </div>
   )

@@ -55,7 +55,7 @@ body {
         border-radius: 10px;
         border: 1px none;
         padding:10px;
-        margin-top: -1px;
+        margin-top: 2px;
       }
       .btn-edit{
         background-color:transparent;
@@ -73,4 +73,7 @@ body {
       color: black;
     }
   }
+}
+.carousel-item{
+  height: 500px;
 }
