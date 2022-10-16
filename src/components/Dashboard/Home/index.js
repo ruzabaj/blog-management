@@ -39,18 +39,26 @@ const Home = () => {
           Fiction
         </button>
       </div>
+        <div className="container">
+          <div className="row">
       {userData.map((element) => (
-        <div>
-          <div className="card" key={element.id}>
-            <img src={element.image} className="card-img" alt="user-profile" />
-            <div className="card-body">
-              <h5 className="card-title">{element.title}</h5>
-              <p className="card-text">{element.description}</p>
-              <button className="btn-user-profile">More</button>
+            <div className="col-4">
+              <div className="card" key={element.id}>
+                <img
+                  src={element.image}
+                  className="card-img"
+                  alt="user-profile"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{element.title}</h5>
+                  <p className="card-text">{element.description}</p>
+                  <button className="btn-user-profile">More</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
       ))}
+      </div>
+    </div>
       <Footer />
     </div>
   );
