@@ -11,7 +11,8 @@ function Image() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100"
+        <img
+          className="d-block w-100"
           src="carousel-image.jpg"
           alt="Second slide"
         />
@@ -20,12 +21,23 @@ function Image() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100"
-          src="carousel-images.jpg"
+        <img
+          className="d-block w-100"
+          src="carousel-images.png"
           alt="Third slide"
         />
         <Carousel.Caption>
           <h3>3</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="carousel-food.jpg"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>4</h3>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
