@@ -98,5 +98,7 @@ body {
 }
 
 .carousel-item {
-  height: 500px;
+  height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=home.css.map */
