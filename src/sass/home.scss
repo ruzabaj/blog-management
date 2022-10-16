@@ -1,36 +1,54 @@
-@import './config';
-body{
-    background-color: var(--bg-clr);
+@import "./config";
+body {
+  background-color: var(--bg-clr);
 }
-.home-bg-img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
+.home-bg-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
 }
-.card{
-    margin: 20px 30px;
-    padding: 10px;
-    width: 300px;
-    height: 400px;
-    display: grid;
-    place-items: center;
-    .card-img{
-        height: 150px;
-        width: 200px;
+.category-btns{
+    display: flex;
+    justify-content: space-around;
+    .btn-category {
+      width: 150px;
+      height: 50px;
+      padding: 10px 0px;
+      margin: 20px;
+      color: var(--home-more-btn);
+      border-radius: 20px;
+      border: 1px none;
+      &:hover {
+        background-color: var(--text);
+        color: var(--btn-category-text);
+        font-weight: bold;
+      }
     }
-    .card-body{
-        text-align: center;
-        .btn-user-profile{
-            color:var(--home-more-btn);
-            border-radius: 20px;
-            border: 1px none;
-        }
-        .card-text{
-            display: flex;
-            justify-content: center;
-            height: 100px;
-            overflow: hidden;
-            color: black;
-        }
+    .card {
+}
+  margin: 20px 30px;
+  padding: 10px;
+  width: 300px;
+  height: 400px;
+  display: grid;
+  place-items: center;
+  .card-img {
+    height: 150px;
+    width: 200px;
+  }
+  .card-body {
+    text-align: center;
+    .btn-user-profile {
+      color: var(--home-more-btn);
+      border-radius: 20px;
+      border: 1px none;
     }
+    .card-text {
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      overflow: hidden;
+      color: black;
+    }
+  }
 }

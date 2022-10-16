@@ -20,22 +20,22 @@ const Home = () => {
         <img src="blog.jpg" alt="home-bg" className="home-bg-img" />
       </div>
       <div className="category-btns">
-        <button className="travel" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Travel
         </button>
-        <button className="music" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Music
         </button>
-        <button className="food" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Food
         </button>
-        <button className="comedy" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Comedy
         </button>
-        <button className="life" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Lifestyle
         </button>
-        <button className="style" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={showCategoryCard}>
           Fiction
         </button>
       </div>
