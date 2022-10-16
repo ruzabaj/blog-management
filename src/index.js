@@ -8,6 +8,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Dashboard/Home";
 import Contact from "./components/Dashboard/Contact";
 import Create from "./components/Dashboard/Create";
+import Blog from "./components/Dashboard/BlogPages";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,12 +21,10 @@ root.render(
         <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/contact" element={<Contact />}></Route>
           <Route exact path="/create" element={<Create />}></Route>
+          <Route exact path="/blog" element={<Blog />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

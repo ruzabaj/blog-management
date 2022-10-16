@@ -1,0 +1,40 @@
+.dark-theme {
+  --bg-clr:rgba(68, 64, 64, 0.579);
+  --text:white;
+  --theme-color:rgb(36,37,40);
+  --btn:blue;
+  --nav-text:white;
+  --home-more-btn: rgb(140, 140, 190);
+  --btn-category-text:black;
+}
+
+.light-theme {
+  --bg-clr:white;
+  --text:black;
+  --theme-color:rgba(88,160,196, 0.5);
+  --btn:rgba(88,160,196, 0.5);
+  --nav-text:white;
+  --home-more-btn: rgb(69, 69, 202);
+  --btn-category-text:blue;
+}
+
+.profile {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.logo {
+  text-align: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.toggle {
+  width: auto;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}/*# sourceMappingURL=profile.css.map */

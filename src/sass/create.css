@@ -1,0 +1,113 @@
+.dark-theme {
+  --bg-clr:rgba(68, 64, 64, 0.579);
+  --text:white;
+  --theme-color:rgb(36,37,40);
+  --btn:blue;
+  --nav-text:white;
+  --home-more-btn: rgb(140, 140, 190);
+  --btn-category-text:black;
+}
+
+.light-theme {
+  --bg-clr:white;
+  --text:black;
+  --theme-color:rgba(88,160,196, 0.5);
+  --btn:rgba(88,160,196, 0.5);
+  --nav-text:white;
+  --home-more-btn: rgb(69, 69, 202);
+  --btn-category-text:blue;
+}
+
+body {
+  background-color: var(--bg-clr);
+}
+
+.create-bg {
+  display: grid;
+  place-items: center;
+}
+.create-bg .background-create {
+  width: 1200px;
+  height: 500px;
+}
+
+input[type=text] {
+  cursor: pointer;
+}
+
+.create-width {
+  display: grid;
+}
+.create-width .create-center-align {
+  width: 1200px;
+  align-self: center;
+  justify-self: center;
+}
+.create-width .create-center-align .manuals {
+  display: flex;
+  justify-content: space-between;
+}
+.create-width .create-center-align .manuals .create-blog-category {
+  display: flex;
+}
+.create-width .create-center-align .manuals .create-blog-category .create-blog {
+  height: 50px;
+  width: 50px;
+}
+.create-width .create-center-align .manuals .create-blog-category .category {
+  margin: 5px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--theme-color);
+  background-color: var(--theme-color);
+  color: var(--nav-text);
+  border-radius: 10px;
+}
+.create-width .create-center-align .manuals .create-blog-category .category .Dropdown-option {
+  border: 1px solid var(--bg-clr);
+  border-radius: 10px;
+}
+.create-width .create-center-align .manuals .create-blog-category .category .Dropdown-option:hover {
+  filter: brightness(1.2);
+  border-radius: 10px;
+  background-color: var(--bg-clr);
+  color: var(--text);
+}
+.create-width .create-center-align .manuals .post {
+  margin: 5px;
+  height: 50px;
+  width: 100px;
+  background-color: var(--theme-color);
+  color: var(--nav-text);
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+.create-width .create-center-align .text-area {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.create-width .create-center-align .text-area textarea {
+  margin: 20px 0px;
+  border-radius: 20px;
+  background-color: var(--bg-clr);
+  color: var(--text);
+  padding: 5px 10px;
+}
+
+textarea::-moz-placeholder {
+  color: var(--text);
+  padding: 2px 10px;
+}
+
+textarea:-ms-input-placeholder {
+  color: var(--text);
+  padding: 2px 10px;
+}
+
+textarea::placeholder {
+  color: var(--text);
+  padding: 2px 10px;
+}/*# sourceMappingURL=create.css.map */

@@ -1,3 +1,23 @@
+.dark-theme {
+  --bg-clr:rgba(68, 64, 64, 0.579);
+  --text:white;
+  --theme-color:rgb(36,37,40);
+  --btn:blue;
+  --nav-text:white;
+  --home-more-btn: rgb(140, 140, 190);
+  --btn-category-text:black;
+}
+
+.light-theme {
+  --bg-clr:white;
+  --text:black;
+  --theme-color:rgba(88,160,196, 0.5);
+  --btn:rgba(88,160,196, 0.5);
+  --nav-text:white;
+  --home-more-btn: rgb(69, 69, 202);
+  --btn-category-text:blue;
+}
+
 .signup-container {
   display: flex;
 }
