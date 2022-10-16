@@ -18,7 +18,6 @@ const Sidebar = () => {
     setBright(!bright)
     console.log("clicked",theme)
     theme === "light-theme"?      setTheme("dark-theme")    :     setTheme("light-theme")
-    
   };
 
   return (

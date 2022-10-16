@@ -2,9 +2,9 @@ import React from "react";
 import '../../sass/footer.scss';
 
 const Footer = () => {
-  return <section className="footer">
-      <p>© Copyright 2022</p>
-  </section>;
+  return <div className="footer">
+      <p className="copyright">© Copyright 2022</p>
+  </div>;
 };
 
 export default Footer;

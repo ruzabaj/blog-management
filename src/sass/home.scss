@@ -38,10 +38,27 @@ body {
   }
   .card-body {
     text-align: center;
-    .btn-user-profile {
-      color: var(--home-more-btn);
-      border-radius: 20px;
-      border: 1px none;
+    .read-edit-delete{
+      .btn-more{
+        color: var(--home-more-btn);
+        border-radius: 10px;
+        border: 1px none;
+        padding:10px;
+      }
+      .btn-delete{
+        background-color: transparent;
+        color: red;
+        border-radius: 10px;
+        border: 1px none;
+        padding:10px;
+      }
+      .btn-edit{
+        background-color:transparent;
+        color: green;
+        border-radius: 10px;
+        border: 1px none;
+        padding:10px;
+      }
     }
     .card-text {
       display: flex;
