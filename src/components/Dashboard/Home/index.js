@@ -1,12 +1,14 @@
 import React,{useEffect} from "react";
-// import  {useState} from "react";
+import  {useState} from "react";
 import Navbar from "../Navbar";
 import Footer from "../footer";
 import "../../../sass/home.scss";
+import Data from "../Data";
 // import axios from "axios";
 
 const Home = () => {
-  // const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState(Data)
+  //({
   //   labels: ,
   //   datasets: []
   // })
