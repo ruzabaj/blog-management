@@ -6,11 +6,12 @@ import "../../../sass/create.scss";
 const Create = () => {
     //for dropdown
     const options = [
-        { value: "Time", label: "Time" },
+        { value: "Time", label: "Food" },
         { value: "Two", label: "Music" },
         { value: "Three", label: "Comedy" },
-        { value: "Four", label: "Life" },
-        { value: "Five", label: "Style" },
+        { value: "Four", label: "Lifestyle" },
+        { value: "Five", label: "Fiction" },
+        { value: "Six", label: "Travel" },
       ];
       const [category, setCategory] = useState("");
     
