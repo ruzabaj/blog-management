@@ -1,9 +1,13 @@
-import axios from 'axios';
-import React, { useState , useRef} from 'react';
+import React, { useState , useRef, useMemo} from 'react';
 import Dropdown from "react-dropdown";
+import JoditEditor from 'jodit-react';
 import "../../../sass/create.scss";
+import axios from 'axios';
 
 const Create = () => {
+  //text-editor
+  const [content, setContent] = useState('');
+  const editor = useRef(null);
     //for dropdown
     const options = [
         { value: "Time", label: "Food" },
@@ -29,7 +33,7 @@ const Create = () => {
         //handle API
         // axios.post('http://localhost:5000/blog/post');
       }
-
+      
       const fileInputField = useRef(null)
 
   return (
@@ -48,10 +52,6 @@ const Create = () => {
                 className="post"
                 // style={{ display: "none" }} 
                 />
-              {/* <button>
-                <img src="add.png" alt="add" className="create-blog" />
-              </button> */}
-
               <Dropdown
                 className="category"
                 id="category"
@@ -73,15 +73,23 @@ const Create = () => {
               placeholder="Title"
               className='title'
             />
-            <textarea
+            {/* <textarea
               rows="05"
               cols="0"
               minLength="100"
               maxLength="2000"
               placeholder="Write something here…"
               className='description'
-            />
+            /> */}
+            <JoditEditor
+			ref={editor}
+			value={content}
+			tabIndex={1} // tabIndex of textarea
+			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+			onChange={newContent => {}}
+		/>
           </div>
+          {content}
         </div>
       </div>
     </div>

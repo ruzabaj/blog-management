@@ -93,7 +93,6 @@ input[type=text] {
   margin: 20px 0px;
   border-radius: 20px;
   background-color: var(--bg-clr);
-  color: var(--text);
   padding: 5px 10px;
 }
 

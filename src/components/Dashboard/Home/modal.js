@@ -15,7 +15,7 @@ function ModalDialog() {
           <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-         <h5> Do you really want to delete the button?</h5>
+         <h5> Do you really want to delete the blog</h5>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={initModal}>
