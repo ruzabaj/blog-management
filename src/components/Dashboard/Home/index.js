@@ -7,12 +7,16 @@ import axios from "axios";
 
 const Home = () => {
   const [userData, setUserData] = useState(Data);
-  const showCategoryCard = () => {
-    //   let categoryCard= userData.filter((element)=== filter.category)
-  };
-  useEffect(() => {
-    axios.get("http://localhost:5000/blog/");
-  }, []);
+
+  const showCategoryCard = (item) => {
+    const updatedId = Data.filter((element)=>{
+      return element.category === item
+    });
+    setUserData(updatedId)
+  }
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/blog/");
+  // }, []);
   return (
     <div>
       <Navbar />
@@ -20,22 +24,22 @@ const Home = () => {
         <img src="blog.jpg" alt="home-bg" className="home-bg-img" />
       </div>
       <div className="category-btns">
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Travel')}>
           Travel
         </button>
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Music')}>
           Music
         </button>
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Food')}>
           Food
         </button>
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Comedy')}>
           Comedy
         </button>
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Lifestyle')}>
           Lifestyle
         </button>
-        <button className="btn-category" onClick={showCategoryCard}>
+        <button className="btn-category" onClick={()=>showCategoryCard('Fiction')}>
           Fiction
         </button>
       </div>
