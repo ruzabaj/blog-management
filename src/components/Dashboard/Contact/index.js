@@ -8,7 +8,6 @@ const Contact = () => {
   return (
     <div>
       <Navbar/>
-      <Dropdown/>
       <Card/>
       <Footer/>
     </div>
