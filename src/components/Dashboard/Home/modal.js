@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap';
+
 function ModalDialog() {
   const [isShow, invokeModal] = useState(false)
   const initModal = () => {
