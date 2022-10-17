@@ -3,6 +3,10 @@
     .card-content{
         width: calc(100% - 400px);
         margin: 20px;
+        input{
+            border:none;
+            border-bottom: 20x solid var(--text);
+        }
     }
     .vl {
         border-left: 6px solid var(--theme-color);

@@ -21,9 +21,11 @@ const Content = () => {
       </div>
       <div className="email">
         <label>Email</label>
+        <input type="text"/>
       </div>
       <div className="message">
         <label>Message</label>
+        <textarea placeholder='Write something ...'></textarea>
       </div>
     </div>
     <button type="submit">Submit</button>

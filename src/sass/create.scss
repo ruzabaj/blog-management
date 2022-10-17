@@ -10,9 +10,7 @@ body{
     height: 500px;
   }
 }
-input[type="text"]{
-  cursor: pointer;
-}
+
 .create-width {
   display: grid;
 
@@ -26,6 +24,9 @@ input[type="text"]{
       justify-content: space-between;
       .create-blog-category {
         display: flex;
+        .post input{
+          cursor: pointer;
+        }
         .create-blog {
           height: 50px;
           width: 50px;
