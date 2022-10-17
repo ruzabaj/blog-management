@@ -1,7 +1,7 @@
+const CategoryButton = ({setUserData, Data}) => {
 
-const Button = ({userData, setUserData}) => {
     const showCategoryCard = (item) => {
-        const updatedId = userData.filter((element) => {
+        const updatedId = Data.filter((element) => {
           return element.category === item;
         });
         setUserData(updatedId);
@@ -48,4 +48,4 @@ const Button = ({userData, setUserData}) => {
   )
 }
 
-export default Button
+export default CategoryButton

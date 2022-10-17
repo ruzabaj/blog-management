@@ -18,6 +18,7 @@ const Home = () => {
     console.log("clicked readmore");
     navigate("/blog");
   };
+  
   // useEffect(() => {
   //   axios.get("http://localhost:5000/blog/");
   // }, []);
@@ -25,7 +26,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <CategoryButton props={setUserData} user={userData} />
+      <CategoryButton setUserData={setUserData} Data={Data}/>
       <div className="container">
         <div className="row">
           {userData.map((element) => (
