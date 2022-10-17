@@ -1,0 +1,15 @@
+.contact-card{
+    display: flex;
+    .card-content{
+        width: calc(100% - 400px);
+        margin: 20px;
+    }
+    .vl {
+        border-left: 6px solid var(--theme-color);
+        height: 500px;
+      }
+      .card-information{
+        width: calc(100% - 500px);
+        margin: 20px;
+      }
+}

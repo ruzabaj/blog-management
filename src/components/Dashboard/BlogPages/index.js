@@ -1,6 +1,7 @@
 import React ,{useState} from 'react';
 import Navbar from '../Navbar';
 import Data from "../Data";
+import Comment from './comment';
 import Footer from '../footer';
 import "../../../sass/blog.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,6 +34,7 @@ const Blog = () => {
           ))}
           </div>
         </div>
+        <Comment/>
         <Footer/>
     </div>
   )
