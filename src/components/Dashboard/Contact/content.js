@@ -29,9 +29,11 @@ const Content = () => {
           <label>Message</label>
         </div>
       </div>
+      <div className="btn-submit">
       <button type="submit" className="contact-submit">
         Submit
       </button>
+      </div>
     </div>
   );
 };

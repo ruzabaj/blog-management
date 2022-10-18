@@ -88,17 +88,21 @@
   //   transform: translateY(-40px);
   // }
 }
-.contact-submit {
-  width: 150px;
-  height: 50px;
-  padding: 10px 0px;
-  margin: 20px;
-  color: var(--home-more-btn);
-  border-radius: 20px;
-  border: 1px none;
-  &:hover {
-    background-color: var(--text);
-    color: var(--btn-category-text);
-    font-weight: bold;
+.btn-submit{
+  display: flex;
+  justify-content: center;
+  .contact-submit {
+    width: 150px;
+    height: 50px;
+    padding: 10px 0px;
+    margin: 20px;
+    color: var(--home-more-btn);
+    border-radius: 20px;
+    border: 1px none;
+    &:hover {
+      background-color: var(--text);
+      color: var(--btn-category-text);
+      font-weight: bold;
+    }
   }
 }
