@@ -1,3 +1,5 @@
+@import "./config";
+
 .contact-card{
     display: flex;
     .card-content{
@@ -5,7 +7,7 @@
         margin: 20px;
         input{
             border:none;
-            border-bottom: 20x solid var(--text);
+            border-bottom: 20x solid silver;
         }
     }
     .vl {
@@ -16,4 +18,65 @@
         width: calc(100% - 500px);
         margin: 20px;
       }
+}
+.card-form{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+    .form-name{
+    margin:10px 0px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    .name{
+      width: 100%;
+      height: 80px;
+      input{
+        width:100%;
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+      }
+  }
+  }
+  .form-email{
+    margin:10px 0px;
+    height: 50px;
+    width: 100%;
+  .email{
+    width: 100%;
+    height: 80px;
+    input{
+      width:100%;
+      border: none;
+      border-bottom: 2px solid grey;
+      outline: none;
+    }
+  }
+}
+  .message{
+    height: 80px;
+    textarea{
+      width:100%;
+      border: none;
+      border-bottom: 2px solid grey;
+      outline: none;
+    }
+  }
+  // .name input:focus ~ label{
+  //   transform: translateY(-40px);
+  // }
+}
+.contact-submit{
+  width: 150px;
+  height: 50px;
+  padding: 10px 0px;
+  margin: 20px;
+  color: var(--home-more-btn);
+  border-radius: 20px;
+  border: 1px none;
+  &:hover {
+    background-color: var(--text);
+    color: var(--btn-category-text);
+    font-weight: bold;
+  }
 }
