@@ -1,62 +1,75 @@
 @import "./config";
 
-.contact-card{
-    display: flex;
-    .card-content{
-        width: calc(100% - 400px);
-        margin: 20px;
-        input{
-            border:none;
-            border-bottom: 20x solid silver;
-        }
+.contact-card {
+  display: flex;
+  .card-content {
+    width: calc(100% - 400px);
+    margin: 20px;
+    input {
+      border: none;
+      border-bottom: 20x solid silver;
     }
-    .vl {
-        border-left: 6px solid var(--theme-color);
-        height: 500px;
-      }
-      .card-information{
-        width: calc(100% - 500px);
-        margin: 20px;
-      }
+  }
+  .vl {
+    border-left: 6px solid var(--theme-color);
+    height: 500px;
+  }
+  .card-information {
+    width: calc(100% - 500px);
+    margin: 20px;
+  }
 }
-.card-form{
+.card-form {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
-    .form-name{
-    margin:10px 0px;
+  .form-name {
+    margin: 10px 0px;
     height: 50px;
     width: 100%;
     position: relative;
-    .name{
+    .name {
       width: 100%;
       height: 80px;
-      input{
-        width:100%;
+      input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        &:focus ~ label,
+        &:valid ~ label {
+          transform: translateY(-20px);
+          color:rgb(170, 164, 164);
+        }
+      }
+      label{
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        color:grey;
+        pointer-events: none;
+        transition: all 0.5s all;
+      }
+    }
+  }
+  .form-email {
+    margin: 10px 0px;
+    height: 50px;
+    width: 100%;
+    .email {
+      width: 100%;
+      height: 80px;
+      input {
+        width: 100%;
         border: none;
         border-bottom: 2px solid grey;
         outline: none;
       }
-  }
-  }
-  .form-email{
-    margin:10px 0px;
-    height: 50px;
-    width: 100%;
-  .email{
-    width: 100%;
-    height: 80px;
-    input{
-      width:100%;
-      border: none;
-      border-bottom: 2px solid grey;
-      outline: none;
     }
   }
-}
-  .message{
+  .message {
     height: 80px;
-    textarea{
-      width:100%;
+    textarea {
+      width: 100%;
       border: none;
       border-bottom: 2px solid grey;
       outline: none;
@@ -66,7 +79,7 @@
   //   transform: translateY(-40px);
   // }
 }
-.contact-submit{
+.contact-submit {
   width: 150px;
   height: 50px;
   padding: 10px 0px;

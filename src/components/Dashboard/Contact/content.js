@@ -18,21 +18,25 @@ const Content = () => {
         <div className="form-name">
           <div className="name">
             <input type="text" required />
+            <div className="underline" />
             <label>Name</label>
           </div>
         </div>
         <div className="form-email">
-        <div className="email">
-          <input type="text" />
-          <label>Email</label>
-        </div>
+          <div className="email">
+            <input type="text" />
+            <div className="underline" />
+            <label>Email</label>
+          </div>
         </div>
         <div className="message">
           <textarea />
           <label>Message</label>
         </div>
       </div>
-      <button type="submit" className="contact-submit">Submit</button>
+      <button type="submit" className="contact-submit">
+        Submit
+      </button>
     </div>
   );
 };
