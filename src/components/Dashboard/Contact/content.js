@@ -145,9 +145,6 @@ const Content = () => {
           <button className="show-contact" onClick={showContact}>
             Show contact
           </button>
-          {data.map((element) => (
-            <div></div>
-          ))}
         </div>
       </div>
     </div>
