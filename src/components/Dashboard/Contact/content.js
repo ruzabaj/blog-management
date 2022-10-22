@@ -1,6 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
+import axios from "axios";
 
 const Content = () => {
+  useEffect(() => {
+   axios.post('http://api.allureinternational.com.np/api/add-contact');
+  }, [])
   return (
     <div className="card-content">
       <h2>Get In Touch</h2>
@@ -24,6 +28,13 @@ const Content = () => {
             <label>Email</label>
           </div>
         </div>
+        <div className="form-subject">
+          <div className="subject">
+            <input type="text" />
+            <div className="underline" />
+            <label>subject</label>
+          </div>
+        </div>
         <div className="message">
           <textarea />
           <label>Message</label>
@@ -32,6 +43,9 @@ const Content = () => {
       <div className="btn-submit">
       <button type="submit" className="contact-submit">
         Submit
+      </button>
+      <button className="show-contact">
+        Show contact
       </button>
       </div>
     </div>
