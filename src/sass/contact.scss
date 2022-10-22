@@ -66,6 +66,7 @@
     margin: 10px 0px;
     height: 50px;
     width: 100%;
+    position: relative;
     .email {
       width: 100%;
       height: 80px;
@@ -74,6 +75,29 @@
         border: none;
         border-bottom: 2px solid grey;
         outline: none;
+        &:focus ~ label,
+        &:valid ~ label {
+          transform: translateY(-20px);
+          color: rgb(170, 164, 164);
+        }
+      }
+      label {
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        color: grey;
+        pointer-events: none;
+        transition: all 0.5s all;
+      }
+      .underline {
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        content: " ";
+        background: rgb(88, 160, 196);
+        // transform: scaleX(0);
+        transition: transform 0.3s ease;
       }
     }
   }
@@ -100,6 +124,7 @@
         font-size: 14px;
         position: absolute;
         left: 0;
+        bottom: 15px;
         color: grey;
         pointer-events: none;
         transition: all 0.5s all;
@@ -115,13 +140,82 @@
       }
     }
   }
-  .message {
-    height: 80px;
-    textarea {
+  .form-number {
+    margin: 10px 0px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    .number {
       width: 100%;
-      border: none;
-      border-bottom: 2px solid grey;
-      outline: none;
+      height: 80px;
+      input[type="numnber"] {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        &:focus ~ label,
+        &:valid ~ label {
+          transform: translateY(-20px);
+          color: rgb(170, 164, 164);
+        }
+      }
+      label {
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        color: grey;
+        pointer-events: none;
+        transition: all 0.5s all;
+      }
+      .underline {
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        content: " ";
+        background: rgb(88, 160, 196);
+        // transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+  .form-message {
+    margin: 10px 0px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    .message {
+      width: 100%;
+      height: 80px;
+      input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        &:focus ~ label,
+        &:valid ~ label {
+          transform: translateY(-20px);
+          color: rgb(170, 164, 164);
+        }
+      }
+      label {
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        color: grey;
+        pointer-events: none;
+        transition: all 0.5s all;
+      }
+      .underline {
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        content: " ";
+        background: rgb(88, 160, 196);
+        // transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
     }
   }
   // .name input:focus ~ label{
