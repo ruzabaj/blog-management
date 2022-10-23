@@ -33,22 +33,20 @@ const Content = () => {
         console.log(error);
       });
   };
- 
+  const [getContact, setGetContact] = useState([]);
+
   useEffect(() => {
     async function contactProfile() {
       console.log("clicked show contact");
       const response = await axios
         .get("http://api.allureinternational.com.np/api/get-all-contact")
         .then((res) => {
-          console.log(res);
+          console.log(res.data.data, "then");
+          setGetContact(res.data.data);
         })
         .catch((error) => {
           console.log(error);
         });
-      const show = response.data.data;
-      console.log(show, "show array");
-      console.log(response.data.data[0].name, "response1");
-      console.log(response.data.data[1].name, "response2");
     }
     contactProfile();
   }, []);
@@ -133,10 +131,32 @@ const Content = () => {
         <button className="contact-submit" onClick={handleSubmit}>
           Submit
         </button>
-        <div>
-          <button className="show-contact">Show contact</button>
         </div>
-      </div>
+          <div >
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Message</th>
+                </tr>
+              </thead>
+        {getContact.map((element, index) => (
+              <tbody key={index}>
+                <tr>
+                  <th scope="row">{element.name}</th>
+                  <td>{element.email}</td>
+                  <td>{element.phone}</td>
+                  <td>{element.subject}</td>
+                  <td>{element.message}</td>
+                </tr>
+              </tbody>
+                ))}
+            </table>
+          </div>
+     
     </div>
   );
 };
