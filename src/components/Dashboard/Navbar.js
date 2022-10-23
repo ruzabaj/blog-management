@@ -32,7 +32,10 @@ const Sidebar = () => {
                   <Link to="/home">Home</Link>
                 </li>
                 <li className="nav-item-list">
-                  <Link to="/create">Create</Link>
+                  <Link to="/create">Blog</Link>
+                </li>
+                <li className="nav-item-list">
+                  <Link to="/category">Category</Link>
                 </li>
                 <li className="nav-item-list">
                   <Link to="/contact">Contact</Link>
