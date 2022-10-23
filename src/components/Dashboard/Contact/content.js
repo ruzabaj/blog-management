@@ -16,6 +16,7 @@ const Content = () => {
     setData(newdata);
     console.log(newdata, "newdata");
   };
+  
   const handleSubmit = () => {
     console.log("submit");
     axios
@@ -27,10 +28,16 @@ const Content = () => {
         message: data.messages,
       })
       .then((res) => {
+        axios
+          .get("http://api.allureinternational.com.np/api/get-all-contact")
+          .then((response) => {
+            console.log(response, "response");
+            setGetContact(response.data.data);
+          });
         console.log(res);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error, "error");
       });
   };
   const [getContact, setGetContact] = useState([]);
@@ -51,10 +58,21 @@ const Content = () => {
     contactProfile();
   }, []);
 
-  const deleteButton=(id)=>{
-    console.log("deleted contact with the id",id)
-    axios.delete(`http://api.allureinternational.com.np/api/delete-contact/${id}`)
-  }
+  const deleteButton = (id) => {
+    console.log("deleted contact with the id", id);
+    axios
+      .delete(`http://api.allureinternational.com.np/api/delete-contact/${id}`)
+      .then((res) => {
+        axios
+          .get("http://api.allureinternational.com.np/api/get-all-contact")
+          .then((res) => {
+            setGetContact(res.data.data);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="card-content">
       <h2>Get In Touch</h2>
@@ -135,35 +153,42 @@ const Content = () => {
         <button className="contact-submit" onClick={handleSubmit}>
           Submit
         </button>
-        </div>
-          <div >
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Subject</th>
-                  <th scope="col">Message</th>
-                </tr>
-              </thead>
-        {getContact.map((element, index) => (
-              <tbody key={index}>
-                <tr>
-                  <td>{element.id}</td>
-                  <th scope="row">{element.name}</th>
-                  <td>{element.email}</td>
-                  <td>{element.phone}</td>
-                  <td>{element.subject}</td>
-                  <td>{element.message}</td>
-                  <td><button className="delete-btn" style={{background:"red", color:"white" }} onClick={()=>deleteButton(element.id)}>Delete</button></td>
-                </tr>
-              </tbody>
-                ))}
-            </table>
-          </div>
-     
+      </div>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Message</th>
+            </tr>
+          </thead>
+          {getContact.map((element, index) => (
+            <tbody key={index}>
+              <tr>
+                <td>{element.id}</td>
+                <th scope="row">{element.name}</th>
+                <td>{element.email}</td>
+                <td>{element.phone}</td>
+                <td>{element.subject}</td>
+                <td>{element.message}</td>
+                <td>
+                  <button
+                    className="delete-btn"
+                    style={{ background: "red", color: "white" }}
+                    onClick={() => deleteButton(element.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+      </div>
     </div>
   );
 };
