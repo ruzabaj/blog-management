@@ -8,6 +8,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Dashboard/Home";
 import Contact from "./components/Dashboard/Contact";
 import Create from "./components/Dashboard/Create";
+import Create from "./components/Dashboard/Create";
 import Blog from "./components/Dashboard/BlogPages";
 
 
@@ -20,7 +21,8 @@ root.render(
         <Route exact path="/signup" element={<Signup />}></Route>
         <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/contact" element={<Contact />}></Route>
-          <Route exact path="/create" element={<Create />}></Route>
+          <Route exact path="/create-blog" element={<Create />}></Route>
+          <Route exact path="/create-category" element={<Category/>}></Route>
           <Route exact path="/blog" element={<Blog />}></Route>
       </Routes>
     </Router>
