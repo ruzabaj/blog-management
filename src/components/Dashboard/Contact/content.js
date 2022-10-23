@@ -51,6 +51,10 @@ const Content = () => {
     contactProfile();
   }, []);
 
+  const deleteButton=(id)=>{
+    console.log("deleted contact with the id",id)
+    axios.delete(`http://api.allureinternational.com.np/api/delete-contact/${id}`)
+  }
   return (
     <div className="card-content">
       <h2>Get In Touch</h2>
@@ -136,6 +140,7 @@ const Content = () => {
             <table class="table">
               <thead class="thead-dark">
                 <tr>
+                  <th scope="col">Id</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Phone</th>
@@ -146,11 +151,13 @@ const Content = () => {
         {getContact.map((element, index) => (
               <tbody key={index}>
                 <tr>
+                  <td>{element.id}</td>
                   <th scope="row">{element.name}</th>
                   <td>{element.email}</td>
                   <td>{element.phone}</td>
                   <td>{element.subject}</td>
                   <td>{element.message}</td>
+                  <td><button className="delete-btn" style={{background:"red", color:"white" }} onClick={()=>deleteButton(element.id)}>Delete</button></td>
                 </tr>
               </tbody>
                 ))}
