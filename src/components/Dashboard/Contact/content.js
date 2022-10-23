@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import axios from "axios";
 
 const Content = () => {
@@ -56,13 +56,24 @@ const Content = () => {
   //       console.log(error)
   //     })
   //   }
-  const showContact = () => {
-    console.log("clicked show contact");
-    axios.get("http://api.allureinternational.com.np/api/get-all-contact");
-  };
-
+  useEffect(()=>{
+  async function contactProfile()  {
+      console.log("clicked show contact");
+      const response= await axios.get("http://api.allureinternational.com.np/api/get-all-contact");
+      console.log(response.data.data[0].name,"response1")
+      console.log(response.data.data[1].name,"response2")
+    }
+    contactProfile()
+  },[])
+  
+const [res, setRes]=useState(response.data.data)
   return (
     <div className="card-content">
+      {res.map((element, index)=>(
+        <div key={index}>
+
+        </div>
+      ))}
       <h2>Get In Touch</h2>
       <h6>We would like to hear from you</h6>
       <p className="information">
@@ -142,7 +153,7 @@ const Content = () => {
           Submit
         </button>
         <div>
-          <button className="show-contact" onClick={showContact}>
+          <button className="show-contact">
             Show contact
           </button>
         </div>
