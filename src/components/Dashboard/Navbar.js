@@ -32,10 +32,10 @@ const Sidebar = () => {
                   <Link to="/home">Home</Link>
                 </li>
                 <li className="nav-item-list">
-                  <Link to="/create">Blog</Link>
+                  <Link to="/create-blog">Blog</Link>
                 </li>
                 <li className="nav-item-list">
-                  <Link to="/category">Category</Link>
+                  <Link to="/create-category">Category</Link>
                 </li>
                 <li className="nav-item-list">
                   <Link to="/contact">Contact</Link>
