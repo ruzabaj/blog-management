@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Content = () => {
@@ -33,50 +33,28 @@ const Content = () => {
         console.log(error);
       });
   };
-  // const submitForm=(e)=>{
-  //     e.preventDefault();
-  //     console.log(e.target.value,"value");
-  //     console.log(e.target.name,"name");
-  //     const name=e.target.name;
-  //     const email=e.target.email.value;
-  //     const phone=e.target.phone.value;
-  //     const subject=e.target.subject.value;
-  //     const message=e.target.message.value;
-  //     axios.post('http://api.allureinternational.com.np/api/add-contact',{
-  //       name,
-  //       email,
-  //       phone,
-  //       subject,
-  //       message
-  //     })
-  //     .then((res)=>{
-  //       console.log(res)
-  //     })
-  //     .catch((error)=>{
-  //       console.log(error)
-  //     })
-  //   }
-  useEffect(()=>{
-  async function contactProfile()  {
+ 
+  useEffect(() => {
+    async function contactProfile() {
       console.log("clicked show contact");
-      const response= await axios.get("http://api.allureinternational.com.np/api/get-all-contact");
-      const show=response.data.data;
-      console.log(show, "show array")
-      console.log(response.data.data[0].name,"response1")
-      console.log(response.data.data[1].name,"response2")
+      const response = await axios
+        .get("http://api.allureinternational.com.np/api/get-all-contact")
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      const show = response.data.data;
+      console.log(show, "show array");
+      console.log(response.data.data[0].name, "response1");
+      console.log(response.data.data[1].name, "response2");
     }
-    contactProfile()
-  },[])
-  
-// const [res, setRes]=useState(response.data.data)
+    contactProfile();
+  }, []);
+
   return (
     <div className="card-content">
-      
-      {/* {res.map((element, index)=>(
-        <div key={index}>
-
-        </div>
-      ))} */}
       <h2>Get In Touch</h2>
       <h6>We would like to hear from you</h6>
       <p className="information">
@@ -156,9 +134,7 @@ const Content = () => {
           Submit
         </button>
         <div>
-          <button className="show-contact">
-            Show contact
-          </button>
+          <button className="show-contact">Show contact</button>
         </div>
       </div>
     </div>
