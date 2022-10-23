@@ -8,7 +8,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Dashboard/Home";
 import Contact from "./components/Dashboard/Contact";
 import Create from "./components/Dashboard/Create";
-import Create from "./components/Dashboard/Create";
+import Category from "./components/Dashboard/Category";
 import Blog from "./components/Dashboard/BlogPages";
 
 
