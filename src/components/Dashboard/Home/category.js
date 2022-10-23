@@ -1,4 +1,14 @@
+import { useEffect } from 'react';
+import axios from 'axios';
+
 const CategoryButton = ({ setUserData, Data }) => {
+  useEffect(() => {
+   axios.get('http://api.allureinternational.com.np/api/get-all-active-category')
+   .then((res)=>{
+    let categoryName = res.data.data;
+    console.log(res.data.data[0].category_name,"res from home")
+   })
+  }, [])
   const showCategoryCard = (item) => {
     const updatedId = Data.filter((element) => {
       return element.category === item;
