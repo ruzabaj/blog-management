@@ -1,11 +1,20 @@
+import axios from 'axios';
 import React,{useState} from 'react'
 import { Modal, Button } from 'react-bootstrap';
 
 function ModalDialog() {
-  const [isShow, invokeModal] = useState(false)
-  const initModal = () => {
-    return invokeModal(!isShow)
-  }
+  const [isShow, setInvokeModal] = useState(false);
+  // const [deleteBlog , setDeleteBlog] =useState();
+
+  const initModal = (id) => {
+    return (
+      setInvokeModal(!isShow)
+      // axios.delete(`http://api.allureinternational.com.np/api/delete-blog/${id}`)
+      // .then((res)=>{
+      //   console.log(res)
+      //   setDeleteBlog("delete, res.data.data.id")
+      // })
+      )}
   return (
     <div>
       <Button className='btn-delete' onClick={initModal}>
