@@ -23,3 +23,10 @@
       }
     }
 }
+.delete-category-btn{
+    background-color: $danger;
+    color: var( --nav-text);
+    height: 50px;
+    border:1px solid transparent;
+    border-radius: 10px;
+}

@@ -64,16 +64,17 @@ const Category = () => {
       setActiveCategory(false);
     }
   };
-  const deleteCategory=(id)=>{
-    axios.delete(`http://api.allureinternational.com.np/api/delete-category/${id}`)
-    .then((res)=>{
-      console.log(res)
-      setCategoryDetail(res.data.data)
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-  }
+  const deleteCategory = async (id) => {
+    try {
+      const res = await axios.delete(
+        `http://api.allureinternational.com.np/api/delete-category/${id}`
+      );
+      console.log(res);
+      setCategoryDetail(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -127,7 +128,10 @@ const Category = () => {
               <tr key={index}>
                 <th scope="row">{element.category_name}</th>
                 <th>
-                  <button className="delete-category-btn" onClick={()=>deleteCategory(element.id)}>
+                  <button
+                    className="delete-category-btn"
+                    onClick={() => deleteCategory(element.id)}
+                  >
                     Delete Category
                   </button>
                 </th>
