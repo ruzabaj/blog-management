@@ -102,6 +102,13 @@ const Content = () => {
     }
     return error;
   }
+  useEffect(()=>{
+    console.log(formErrors);
+    if(Object.keys(formErrors).length === 0){
+      console.log()
+    }
+  },[formErrors]);
+
   return (
     <div className="card-content">
       <h2>Get In Touch</h2>
