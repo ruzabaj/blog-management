@@ -91,6 +91,9 @@ const Content = () => {
     if(!values.phones){
       error.phone="Phone Number is required!";
     }
+    else if (values.phones > 10){
+      error.phone ="The phone number should be 10 digit"
+    }
     if(!values.messages){
       error.message="Message is required!";
     }
