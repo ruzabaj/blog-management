@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 
 const Category = () => {
-  const [categoryTitle, setCategoryTitle] = useState([]);
+  const [getCategory, setGetCategory] = useState([]);
   const [activeCategory, setActiveCategory] = useState(false);
   const [categoryDetail, setCategoryDetail] = useState({
     categoryname: "",
@@ -27,29 +27,49 @@ const Category = () => {
     console.log(newdata, "newdata");
   };
 
-  const handleSubmit = () => {
-    axios
-      .post("http://api.allureinternational.com.np/api/add-new-category", {
-        category_name: categoryDetail.categoryname,
-        status: categoryDetail.categorystatus,
-      })
-      .then((res) => {
-        console.log(res, "res from post category detail");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleSubmit = async() => {
+  //   try{
+  //     const response= await axios
+  //       .post("http://api.allureinternational.com.np/api/add-new-category", {
+  //         category_name: categoryDetail.categoryname,
+  //         status: categoryDetail.categorystatus,
+  //       })
+  //       try{
+  //       const res =await axios.get("http://api.allureinternational.com.np/api/get-all-category")
+  //       try {
+  //         setGetCategory(response.data.data);
+  //       } catch (error) {
+  //         console.log(error)
+  //       }
+  //     }
+  //     catch(error){
+  //       console.log(error)
+  //     }
+  //   }
+  // catch(error){
+  //   console.log(error)
+  // }
+  axios.post('http://api.allureinternational.com.np/api/add-new-category',{
+    category_name: categoryDetail.categoryname,
+    status: categoryDetail.categorystatus
+  })
+  .then((res)=>{
+    axios.get('http://api.allureinternational.com.np/api/get-all-category')
+    .then((response)=>{
+      setGetCategory(response.data.data)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  })
   };
 
   useEffect(() => {
     axios
       .get("http://api.allureinternational.com.np/api/get-all-category")
       .then((response) => {
-        console.log(
-          "inside array for accessing the title",
-          response.data.data[0].category_name
-        );
-        setCategoryTitle(response.data.data);
+        console.log('tag', response.data.data)
+        setGetCategory(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -57,24 +77,27 @@ const Category = () => {
   }, []);
 
   const showactiveCategory = () => {
-    // categoryTitle.filter
-    if (categoryTitle.status === "active") {
+    // getCategory.filter
+    if (getCategory.status === "active") {
       setActiveCategory(true);
     } else {
       setActiveCategory(false);
     }
   };
-  const deleteCategory = async (id) => {
-    try {
-      const res = await axios.delete(
+  const deleteCategory =  (id) => {
+     axios.delete(
         `http://api.allureinternational.com.np/api/delete-category/${id}`
-      );
-      console.log(res);
-      setCategoryDetail(res.data.data);
-    } catch (err) {
+      )
+      .then((res)=>{
+      axios.get('http://api.allureinternational.com.np/api/get-all-category')
+        .then((response)=>{
+          setGetCategory(response.data.data)
+        })
+      })
+    .catch ((err)=>{
       console.log(err);
+    }) 
     }
-  };
   return (
     <div>
       <Navbar />
@@ -124,7 +147,7 @@ const Category = () => {
             </tr>
           </thead>
           <tbody>
-            {categoryTitle.map((element, index) => (
+            {getCategory.map((element, index) => (
               <tr key={index}>
                 <th scope="row">{element.category_name}</th>
                 <th>

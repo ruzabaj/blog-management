@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Content = () => {
   const[formErrors, setFormErrors]= useState({});
+  const [getContact, setGetContact] = useState([]);
   const [data, setData] = useState({
     names: "",
     emails: "",
@@ -42,7 +43,6 @@ const Content = () => {
         console.log(error, "error");
       });
   };
-  const [getContact, setGetContact] = useState([]);
 
   useEffect(() => {
     async function contactProfile() {
@@ -105,7 +105,7 @@ const Content = () => {
   useEffect(()=>{
     console.log(formErrors);
     if(Object.keys(formErrors).length === 0){
-      console.log()
+      console.log(data)
     }
   },[formErrors]);
 
