@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Content = () => {
+  const[formErrors, setFormErrors]= useState({});
   const [data, setData] = useState({
     names: "",
     emails: "",
@@ -19,6 +20,7 @@ const Content = () => {
   
   const handleSubmit = () => {
     console.log("submit");
+    setFormErrors(validate(data)) ;
     axios
       .post("http://api.allureinternational.com.np/api/add-contact", {
         name: data.names,
@@ -73,6 +75,30 @@ const Content = () => {
         console.log(err);
       });
   };
+  const validate=(values)=>{
+    console.log(values.names,"name")
+    const error={};
+    const regex=/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z+]+$/i;
+    if(!values.names){
+      error.name="Name is required!";
+    }
+    if(!values.emails){
+      error.email="Email is required!";
+    }
+    else if(!regex.test(values.emails)){
+      error.email="Not a vald email!";
+    }
+    if(!values.phones){
+      error.phone="Phone Number is required!";
+    }
+    if(!values.messages){
+      error.message="Message is required!";
+    }
+    if(!values.subjects){
+      error.subject="Subject is required!";
+    }
+    return error;
+  }
   return (
     <div className="card-content">
       <h2>Get In Touch</h2>
@@ -81,6 +107,7 @@ const Content = () => {
         Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       </p>
+      <pre>{JSON.stringify(data, undefined,2)}</pre>
       <form>
         <div className="card-form">
           <div className="form-name">
@@ -97,6 +124,7 @@ const Content = () => {
               <label>Name</label>
             </div>
           </div>
+          <p className="error-message">{formErrors.name}</p>
           <div className="form-email">
             <div className="email">
               <input
@@ -109,6 +137,7 @@ const Content = () => {
               <label>Email</label>
             </div>
           </div>
+          <p className="error-message">{formErrors.email}</p>
           <div className="form-phone">
             <div className="phone">
               <input
@@ -121,6 +150,7 @@ const Content = () => {
               <label>phone</label>
             </div>
           </div>
+          <p className="error-message">{formErrors.phone}</p>
           <div className="form-subject">
             <div className="subject">
               <input
@@ -133,6 +163,7 @@ const Content = () => {
               <label>Subject</label>
             </div>
           </div>
+          <p className="error-message">{formErrors.subject}</p>
           <div className="form-message">
             <div className="message">
               <input
@@ -146,6 +177,7 @@ const Content = () => {
               <label>message</label>
             </div>
           </div>
+          <p className="error-message">{formErrors.message}</p>
         </div>
       </form>
 
