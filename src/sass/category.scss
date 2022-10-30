@@ -1,4 +1,17 @@
 @import "./config";
+
+.category-main{
+display: flex;
+form{
+  width: calc(100% - 100px);
+  flex:1;
+  border: 1px solid black;
+}
+table{
+  flex: 4;
+}
+}
+
 .table-responsive-lg{
   display: flex;
   flex-direction: column;

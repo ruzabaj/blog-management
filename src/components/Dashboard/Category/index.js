@@ -8,9 +8,9 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 
 const Category = () => {
-  const [categoryDetail, setCategoryDetail]=useState({
-    categoryname:"",
-    categorystatus:""
+  const [categoryDetail, setCategoryDetail] = useState({
+    categoryname: "",
+    categorystatus: "",
   });
   const [getCategory, setGetCategory] = useState([]);
 
@@ -39,12 +39,12 @@ const Category = () => {
       });
   }, []);
 
-  const handleChange=(e)=>{
-    const newdata={...categoryDetail};
-    newdata[e.target.id]=e.target.value;
-    setCategoryDetail(newdata)
-    console.log(newdata, "newdata")
-  }
+  const handleChange = (e) => {
+    const newdata = { ...categoryDetail };
+    newdata[e.target.id] = e.target.value;
+    setCategoryDetail(newdata);
+    console.log(newdata, "newdata");
+  };
 
   const deleteCategory = (id) => {
     axios
@@ -60,24 +60,26 @@ const Category = () => {
         console.log(err);
       });
   };
-const handleSubmit=()=>{
-  axios.post('http://api.allureinternational.com.np/api/add-new-category',{
-    category_name:categoryDetail.categoryname,
-    status: categoryDetail.categorystatus
-  })
-  .then((res)=>{
-    axios.get(`http://api.allureinternational.com.np/api/get-all-category`)
-    .then((res)=>{
-      console.log(res)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
-}
+  const handleSubmit = () => {
+    axios
+      .post("http://api.allureinternational.com.np/api/add-new-category", {
+        category_name: categoryDetail.categoryname,
+        status: categoryDetail.categorystatus,
+      })
+      .then((res) => {
+        axios
+          .get(`http://api.allureinternational.com.np/api/get-all-category`)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <Navbar />
@@ -86,74 +88,78 @@ const handleSubmit=()=>{
         onClick={BacktoHme}
         className="back"
       />
-      <form>
-        <div className="category-center">
-          <div className="category-name">
-            <label className=""> Category name: </label>
-            <input
-              type="text"
-              id="categoryname"
-              value={categoryDetail.categoryname}
-              onChange={handleChange}
-              name="name"
-            />
-          </div>
-          <div className="category-status">
-            <label> Status: </label>
-            <select
-              name="status"
-              id="categorystatus"
-              value={categoryDetail.categorystatus}
-              onChange={handleChange}
-            >
-              <option value="#">  </option>
-              <option value="active"> Active </option>
-              <option value="inactive"> Inactive </option>
-            </select>
-          </div>
-        </div>
-        <div className="btn-submit">
-          <button type="submit" className="category-btn" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      </form>
-      <div class="table-responsive-lg">
-        <h5> List of Categories </h5>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col"> Category </th> <th scope="col"> Status </th>
-              <th scope="col"> Delete Option </th>
-              <th scope="col"> Edit Option </th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            {getCategory.map((element, index) => (
-              <tr key={index}>
-                <th scope="row"> {element.category_name} </th>
-                <th> {element.status} </th>
-                <th>
-                  <button
-                    className="delete-category-btn"
-                    onClick={() => deleteCategory(element.id)}
-                  >
-                    Delete Category
-                  </button>
-                </th>
-                <th>
-                  <button
-                    className="delete-category-btn"
-                    onClick={() => editPage(element)}
-                  >
-                    Edit Category
-                  </button>
-                </th>
+      <div className="category-main">
+        <div className="table-responsive-lg">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"> Category </th> <th scope="col"> Status </th>
+                <th scope="col"> Delete Option </th>
+                <th scope="col"> Edit Option </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {getCategory.map((element, index) => (
+                <tr key={index}>
+                  <th scope="row"> {element.category_name} </th>
+                  <th> {element.status} </th>
+                  <th>
+                    <button
+                      className="delete-category-btn"
+                      onClick={() => deleteCategory(element.id)}
+                    >
+                      Delete Category
+                    </button>
+                  </th>
+                  <th>
+                    <button
+                      className="delete-category-btn"
+                      onClick={() => editPage(element)}
+                    >
+                      Edit Category
+                    </button>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <form>
+          <div className="category-center">
+            <div className="category-name">
+              <label className=""> Category name: </label>
+              <input
+                type="text"
+                id="categoryname"
+                value={categoryDetail.categoryname}
+                onChange={handleChange}
+                name="name"
+              />
+            </div>
+            <div className="category-status">
+              <label> Status: </label>
+              <select
+                name="status"
+                id="categorystatus"
+                value={categoryDetail.categorystatus}
+                onChange={handleChange}
+              >
+                <option value="#"> </option>
+                <option value="active"> Active </option>
+                <option value="inactive"> Inactive </option>
+              </select>
+            </div>
+          </div>
+          <div className="btn-submit">
+            <button
+              type="submit"
+              className="category-btn"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
