@@ -1,4 +1,13 @@
 @import "./config";
+.table-responsive-lg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  table{
+    width: calc(100% - 350px);
+  }
+}
 .category-center {
   display: flex;
   justify-content: space-around;

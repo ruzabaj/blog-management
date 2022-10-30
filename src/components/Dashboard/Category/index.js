@@ -9,68 +9,24 @@ import Navbar from "../Navbar";
 
 const Category = () => {
   const [getCategory, setGetCategory] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(false);
-  const [categoryDetail, setCategoryDetail] = useState({
-    categoryname: "",
-    categorystatus: "",
-  });
 
   let navigate = useNavigate();
   const BacktoHme = () => {
     navigate("/home");
   };
-  const editPage=()=>{
+  const editPage=(element)=>{
+    let {id, category_name, status}=element;
+    localStorage.setItem('id', id);
+    localStorage.setItem('category name', category_name);
+    localStorage.setItem('status', status);
+    console.log("object", element)
     navigate('/edit-category')
   }
-  const handleChange = (e) => {
-    const newdata = { ...categoryDetail };
-    newdata[e.target.id] = e.target.value;
-    setCategoryDetail(newdata);
-    console.log(newdata, "newdata");
-  };
-
-  const handleSubmit = async() => {
-  //   try{
-  //     const response= await axios
-  //       .post("http://api.allureinternational.com.np/api/add-new-category", {
-  //         category_name: categoryDetail.categoryname,
-  //         status: categoryDetail.categorystatus,
-  //       })
-  //       try{
-  //       const res =await axios.get("http://api.allureinternational.com.np/api/get-all-category")
-  //       try {
-  //         setGetCategory(response.data.data);
-  //       } catch (error) {
-  //         console.log(error)
-  //       }
-  //     }
-  //     catch(error){
-  //       console.log(error)
-  //     }
-  //   }
-  // catch(error){
-  //   console.log(error)
-  // }
-  axios.post('http://api.allureinternational.com.np/api/add-new-category',{
-    category_name: categoryDetail.categoryname,
-    status: categoryDetail.categorystatus
-  })
-  .then((res)=>{
-    axios.get('http://api.allureinternational.com.np/api/get-all-category')
-    .then((response)=>{
-      setGetCategory(response.data.data)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-  })
-  };
 
   useEffect(() => {
     axios
       .get("http://api.allureinternational.com.np/api/get-all-category")
       .then((response) => {
-        console.log('tag', response.data.data)
         setGetCategory(response.data.data);
       })
       .catch((error) => {
@@ -78,14 +34,7 @@ const Category = () => {
       });
   }, []);
 
-  const showactiveCategory = () => {
-    // getCategory.filter
-    if (getCategory.status === "active") {
-      setActiveCategory(true);
-    } else {
-      setActiveCategory(false);
-    }
-  };
+ 
   const deleteCategory =  (id) => {
      axios.delete(
         `http://api.allureinternational.com.np/api/delete-category/${id}`
@@ -109,37 +58,7 @@ const Category = () => {
         onClick={BacktoHme}
         className="back"
       />
-      <form type="submit" onSubmit={handleSubmit}>
-        <div className="category-center">
-          <div className="category-name">
-            <label className="">Category name:</label>
-            <input
-              type="text"
-              id="categoryname"
-              value={categoryDetail.categoryname}
-              onChange={handleChange}
-              name="name"
-            />
-          </div>
-          <div className="category-status">
-            <label>Status:</label>
-            <select name="status" id="categorystatus" onChange={handleChange}>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-            </select>
-          </div>
-        </div>
-        <div className="btn-submit">
-          <button
-            type="submit"
-            className="category-btn"
-            onSubmit={handleSubmit}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-      {/* activeCategory&& */}
+   
       <div class="table-responsive-lg">
         <h5>List of Categories</h5>
         <table class="table">
@@ -165,12 +84,12 @@ const Category = () => {
                 <th>
                   <button
                     className="delete-category-btn"
-                    onClick={editPage}
-                    getCategory={getCategory}
-                    setGetCategory={setGetCategory}
+                    onClick={()=>editPage(element)}
                   >
                     Edit Category
                   </button>
+              <div>{element.id}
+              </div>
                 </th>
               </tr>
             ))}
