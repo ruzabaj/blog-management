@@ -9,15 +9,24 @@ import Navbar from "../Navbar";
 
 const EditCategory = () => {
   const [getCategory, setGetCategory] = useState([]);
-//   const [categoryDetail, setCategoryDetail] = useState({
-//     id:"",
-//     categoryname: "",
-//     status: "",
-//   });
-  const [id,setId]=useState();
+  const [id, setId]=useState();
   const[categoryName, setCategoryName]=useState();
   const[status,setStatus]=useState();
     
+  const handleSubmit =  (e) => {
+    e.preventDefault();
+  axios
+    .post(`http://api.allureinternational.com.np/api/category-update/${id}`,
+     {
+      category_name: categoryName,
+      status:status,
+      _method:"patch"
+    }
+    )
+    .then((res)=>{
+        console.log(res)
+    })
+};
   
   let navigate = useNavigate();
   const BacktoHme = () => {
@@ -41,48 +50,6 @@ const EditCategory = () => {
       });
   }, []);
 
-  const handleChange = (e) => {
-    
-    //   const newdata = { ...categoryDetail };
-    //   newdata[e.target.id] = e.target.value;
-    //   setCategoryDetail(newdata);
-    //   console.log(newcdata, "newdata");
-    };
-    
-//     const handleSubmit =  (e) => {
-//     axios
-//       .post("http://api.allureinternational.com.np/api/add-new-category",
-//        {
-//         category_name: categoryDetail.categoryname,
-//         status: categoryDetail.categorystatus,
-   
-//       }
-//       )
-// }
-//       .then((res) => {
-//         axios
-//           .get("http://api.allureinternational.com.np/api/get-all-category")
-//           .then((response) => {
-//             setGetCategory(response.data.data);
-//           })
-//           .catch((error) => {
-//             console.log(error);
-//           });
-//       });
-//   };
-
-//   useEffect(() => {
-//     console.log(getCategory, "get of edit page");
-//     axios
-//       .get("http://api.allureinternational.com.np/api/get-all-category")
-//       .then((response) => {
-//         console.log("tag", response.data.data);
-//         setGetCategory(response.data.data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }, []);
 
   return (
     <div>
@@ -92,9 +59,7 @@ const EditCategory = () => {
         onClick={BacktoHme}
         className="back"
       />
-      <form type="submit" 
-    //   onSubmit={handleSubmit}
-      >
+      <form >
         <div className="category-center">
           <div className="category-name">
             <label className="">Category name:</label>
@@ -103,7 +68,7 @@ const EditCategory = () => {
               id="categoryname"
               value={categoryName}
             //   value={categoryDetail.categoryname}
-            onChange={handleChange}
+            onChange={(e)=>setCategoryName(e.target.value)}
               name="name"
             />
           </div>
@@ -113,7 +78,7 @@ const EditCategory = () => {
             id="status" 
             value={status}
             // value={categoryDetail.status}
-            onChange={handleChange}
+            onChange={(e)=>setStatus(e.target.value)}
             >
               <option value="active"  >Active</option>
               <option value="inactive" >Inactive</option>
@@ -124,14 +89,11 @@ const EditCategory = () => {
           <button
             type="submit"
             className="category-btn"
-            // onSubmit={handleSubmit}
+            onClick={handleSubmit}
           >
             Submit
           </button>
         </div>
-        {getCategory.map((ele,index)=>(
-            <div key={index}>{ele.id}</div>
-        ))}
       </form>
     </div>
   );
