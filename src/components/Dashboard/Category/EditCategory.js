@@ -7,9 +7,7 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 
-const Category = () => {
-  const [getCategory, setGetCategory] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(false);
+const EditCategory = ({getCategory, setGetCategory}) => {
   const [categoryDetail, setCategoryDetail] = useState({
     categoryname: "",
     categorystatus: "",
@@ -17,11 +15,9 @@ const Category = () => {
 
   let navigate = useNavigate();
   const BacktoHme = () => {
-    navigate("/home");
+    navigate("/create-category");
   };
-  const editPage=()=>{
-    navigate('/edit-category')
-  }
+
   const handleChange = (e) => {
     const newdata = { ...categoryDetail };
     newdata[e.target.id] = e.target.value;
@@ -30,27 +26,6 @@ const Category = () => {
   };
 
   const handleSubmit = async() => {
-  //   try{
-  //     const response= await axios
-  //       .post("http://api.allureinternational.com.np/api/add-new-category", {
-  //         category_name: categoryDetail.categoryname,
-  //         status: categoryDetail.categorystatus,
-  //       })
-  //       try{
-  //       const res =await axios.get("http://api.allureinternational.com.np/api/get-all-category")
-  //       try {
-  //         setGetCategory(response.data.data);
-  //       } catch (error) {
-  //         console.log(error)
-  //       }
-  //     }
-  //     catch(error){
-  //       console.log(error)
-  //     }
-  //   }
-  // catch(error){
-  //   console.log(error)
-  // }
   axios.post('http://api.allureinternational.com.np/api/add-new-category',{
     category_name: categoryDetail.categoryname,
     status: categoryDetail.categorystatus
@@ -67,6 +42,7 @@ const Category = () => {
   };
 
   useEffect(() => {
+    console.log(getCategory,"get")
     axios
       .get("http://api.allureinternational.com.np/api/get-all-category")
       .then((response) => {
@@ -78,29 +54,6 @@ const Category = () => {
       });
   }, []);
 
-  const showactiveCategory = () => {
-    // getCategory.filter
-    if (getCategory.status === "active") {
-      setActiveCategory(true);
-    } else {
-      setActiveCategory(false);
-    }
-  };
-  const deleteCategory =  (id) => {
-     axios.delete(
-        `http://api.allureinternational.com.np/api/delete-category/${id}`
-      )
-      .then((res)=>{
-      axios.get('http://api.allureinternational.com.np/api/get-all-category')
-        .then((response)=>{
-          setGetCategory(response.data.data)
-        })
-      })
-    .catch ((err)=>{
-      console.log(err);
-    }) 
-    }
-   
   return (
     <div>
       <Navbar />
@@ -109,6 +62,7 @@ const Category = () => {
         onClick={BacktoHme}
         className="back"
       />
+       {/* <pre>{JSON.stringify(props, undefined,2)}</pre> */}
       <form type="submit" onSubmit={handleSubmit}>
         <div className="category-center">
           <div className="category-name">
@@ -140,45 +94,9 @@ const Category = () => {
         </div>
       </form>
       {/* activeCategory&& */}
-      <div class="table-responsive-lg">
-        <h5>List of Categories</h5>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Category</th>
-              <th scope="col">Delete Option</th>
-              <th scope="col">Edit Option</th>
-            </tr>
-          </thead>
-          <tbody>
-            {getCategory.map((element, index) => (
-              <tr key={index}>
-                <th scope="row">{element.category_name}</th>
-                <th>
-                  <button
-                    className="delete-category-btn"
-                    onClick={() => deleteCategory(element.id)}
-                  >
-                    Delete Category
-                  </button>
-                </th>
-                <th>
-                  <button
-                    className="delete-category-btn"
-                    onClick={editPage}
-                    getCategory={getCategory}
-                    setGetCategory={setGetCategory}
-                  >
-                    Edit Category
-                  </button>
-                </th>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      
     </div>
   );
 };
 
-export default Category;
+export default EditCategory;
