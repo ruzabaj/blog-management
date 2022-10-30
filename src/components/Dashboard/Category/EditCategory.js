@@ -67,7 +67,6 @@ const EditCategory = () => {
               type="text"
               id="categoryname"
               value={categoryName}
-            //   value={categoryDetail.categoryname}
             onChange={(e)=>setCategoryName(e.target.value)}
               name="name"
             />
@@ -77,9 +76,9 @@ const EditCategory = () => {
             <select name="status" 
             id="status" 
             value={status}
-            // value={categoryDetail.status}
             onChange={(e)=>setStatus(e.target.value)}
             >
+              <option value="#" ></option>
               <option value="active"  >Active</option>
               <option value="inactive" >Inactive</option>
             </select>
