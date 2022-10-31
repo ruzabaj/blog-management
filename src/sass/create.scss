@@ -1,11 +1,11 @@
 @import "./config";
-body{
+body {
   background-color: var(--bg-clr);
 }
-label{
+label {
   color: $tertiary-color;
 }
-.create-bg{
+.create-bg {
   display: grid;
   place-items: center;
   .background-create {
@@ -16,75 +16,76 @@ label{
 
 .create-width {
   display: grid;
-
   .create-center-align {
     width: 1200px;
     align-self: center;
     justify-self: center;
-
-  
-      .create-blog-category {
-        display: flex;
-        justify-content: space-between;
-        select{
-          width: 200px;
-          height: 30px;
-          border-radius: 05px;
-        }
-        option{
-          height: 50px;
-          &:hover{
-            background-color: $theme-color;
-          }
-        }
-        .post input{
-          cursor: pointer;
-        }
-        .create-blog {
-          height: 50px;
-          width: 50px;
-        }
-        .category {
-            margin: 5px;
-            width: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--theme-color);
-            background-color: var(--theme-color);
-            color:var(--nav-text);
-            border-radius: 10px;
-            .Dropdown-option{
-              border: 1px solid var(--bg-clr);
-              border-radius: 10px;
-            }
-            .Dropdown-option:hover{
-              filter: brightness(1.2);
-              border-radius: 10px;
-              background-color: var(--bg-clr);
-              color: var(--text);
-            }
-        }
+    img {
+      height: 300px;
+      width: 500px;
     }
-    
-  .post{
+    .create-blog-category {
+      display: flex;
+      justify-content: space-between;
+      select {
+        width: 200px;
+        height: 30px;
+        border-radius: 05px;
+      }
+      option {
+        height: 50px;
+        &:hover {
+          background-color: $theme-color;
+        }
+      }
+      .post input {
+        cursor: pointer;
+      }
+      .create-blog {
+        height: 50px;
+        width: 50px;
+      }
+      .category {
+        margin: 5px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--theme-color);
+        background-color: var(--theme-color);
+        color: var(--nav-text);
+        border-radius: 10px;
+        .Dropdown-option {
+          border: 1px solid var(--bg-clr);
+          border-radius: 10px;
+        }
+        .Dropdown-option:hover {
+          filter: brightness(1.2);
+          border-radius: 10px;
+          background-color: var(--bg-clr);
+          color: var(--text);
+        }
+      }
+    }
+
+    .post {
       margin: 5px;
       height: 50px;
       width: 100px;
       background-color: var(--theme-color);
-      color:var(--nav-text);
+      color: var(--nav-text);
       border: 1px solid transparent;
       border-radius: 10px;
     }
-    input[type="file"]{
+    input[type="file"] {
       display: none;
     }
-    .create-blog-category label{
+    .create-blog-category label {
       margin: 5px;
       height: 30px;
       width: 100px;
       background-color: var(--theme-color);
-      color:var(--nav-text);
+      color: var(--nav-text);
       border: 1px solid transparent;
       border-radius: 10px;
       text-align: center;
@@ -93,17 +94,17 @@ label{
       display: flex;
       flex-direction: column;
       margin: 10px;
-      textarea{
+      textarea {
         margin: 20px 0px;
         border-radius: 20px;
         background-color: var(--bg-clr);
         // color: var(--text);
-        padding: 05px 10px ;
+        padding: 05px 10px;
       }
     }
   }
 }
-textarea::placeholder{
+textarea::placeholder {
   color: var(--text);
   padding: 02px 10px;
 }

@@ -66,13 +66,16 @@ const Create = () => {
                 rows="1"
                 cols="0"
                 minLength="05"
-                maxLength="20"
+                maxLength="25"
                 placeholder="Title"
                 className="title"
                 id="title"
                 value={content.title}
                 onChange={handleChange}
               />
+              <p style={{ color: "grey", size: "10px" }}>
+                Do not exceed more than 25 characters.
+              </p>
               <div className="create-blog-category">
                 <select
                   name="category-list"
