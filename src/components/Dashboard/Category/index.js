@@ -60,17 +60,20 @@ const Category = () => {
         console.log(err);
       });
   };
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     axios
       .post("http://api.allureinternational.com.np/api/add-new-category", {
         category_name: categoryDetail.categoryname,
         status: categoryDetail.categorystatus,
       })
       .then((res) => {
+        console.log(res);
         axios
           .get(`http://api.allureinternational.com.np/api/get-all-category`)
           .then((res) => {
             console.log(res);
+            setGetCategory(res.data.data);
           })
           .catch((error) => {
             console.log(error);
@@ -94,8 +97,8 @@ const Category = () => {
             <thead>
               <tr>
                 <th scope="col"> Category </th> <th scope="col"> Status </th>
-                <th scope="col"> Delete Option </th>
-                <th scope="col"> Edit Option </th>
+                <th scope="col"> Delete  </th>
+                <th scope="col"> Edit  </th>
               </tr>
             </thead>
             <tbody>

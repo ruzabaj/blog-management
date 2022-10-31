@@ -4,20 +4,22 @@ import "../../../sass/create.scss";
 import axios from "axios";
 
 const Create = () => {
-  //text-editor
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState([]);
   const [image, setImage] = useState("");
 
-  const options = [
-    { value: "Time", label: "Food" },
-    { value: "Two", label: "Music" },
-    { value: "Three", label: "Comedy" },
-    { value: "Four", label: "Lifestyle" },
-    { value: "Five", label: "Fiction" },
-    { value: "Six", label: "Travel" },
-  ];
-
+  useEffect(() => {
+    axios
+    .get("http://api.allureinternational.com.np/api/get-all-active-category")
+    .then((response) => {
+        console.log(response.data.data);
+        setCategory(response.data.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },[]);
+ 
   const imageUpload = (event) => {
     console.log(event.target.files);
     setImage(event.target.files[0]);
@@ -33,14 +35,7 @@ const Create = () => {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get("http://api.allureinternational.com.np/api/get-all-active-category")
-      .then((res) => {
-        console.log(res);
-        setCategory(res.data.data);
-      });
-  }, []);
+
   return (
     <div>
       <div className="create-bg">
@@ -66,8 +61,9 @@ const Create = () => {
                   // value={}
                   // onChange={handleChange}
                 >
-                  <option value="#"></option>
-                  <option value="travel">Travel</option>
+                  {category.map((element, index) => (
+                    <option value={element.id} key={index}>{element.category_name}</option>
+                  ))} 
                 </select>
                 <input
                   type="file"
@@ -79,12 +75,6 @@ const Create = () => {
                 <label for="file">Upload</label>
               </div>
               <label>Description:</label>
-              <JoditEditor
-                value={content}
-                tabIndex={1} // tabIndex of textarea
-                onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={(newContent) => {}}
-              />
               <textarea
                 rows="10"
                 cols="100"
