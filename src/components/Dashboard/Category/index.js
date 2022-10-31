@@ -113,7 +113,7 @@ const Category = () => {
                   </th>
                   <th>
                     <button
-                      className="delete-category-btn"
+                      className="edit-category-btn"
                       onClick={() => editPage(element)}
                     >
                       Edit Category
