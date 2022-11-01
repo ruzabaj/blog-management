@@ -2,7 +2,7 @@
 import Delete from "./modal";
 
 
-const Container = ({userData, next,allBlog}) => {
+const Container = ({activeBlog, next,allBlog}) => {
  
   return (
     <div className="container">

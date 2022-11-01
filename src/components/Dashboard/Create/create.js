@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import JoditEditor from "jodit-react";
 import "../../../sass/create.scss";
 import axios from "axios";
 
@@ -129,6 +128,7 @@ const Create = () => {
             POST
           </button>
           <div className="upload-image-class">
+            <label>Uploaded image</label>
           <img src={image} alt="pic" classname="uploaded-image"/>
           </div>
         </div>

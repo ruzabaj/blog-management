@@ -12,6 +12,7 @@ import Container from "./Container";
 const Home = () => {
   const [userData, setUserData] = useState(Data);
   const [activeBlog, setActiveBlog]= useState([]);
+  const [activeCategory, setActiveCategory]= useState([]);
   const [allBlog, setAllBlog]= useState([]);
 
   useEffect(()=>{
@@ -20,6 +21,13 @@ const Home = () => {
       setAllBlog(response.data.data)
     })
     axios.get('http://api.allureinternational.com.np/api/get-all-active-category')
+    .then((res)=>{
+      setActiveCategory(res.data.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    axios.get('http://api.allureinternational.com.np/api/get-active-blog')
     .then((res)=>{
       setActiveBlog(res.data.data)
     })
@@ -40,8 +48,8 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <CategoryButton setUserData={setUserData} Data={Data} activeBlog={activeBlog}/>
-      <Container userData={userData} next={switchPage} allBlog={allBlog}/>
+      <CategoryButton setUserData={setUserData} Data={Data} activeCategory={activeCategory}/>
+      <Container userData={userData} next={switchPage} allBlog={allBlog}  activeBlog={activeBlog}/>
       <Footer />
     </div>
   );
