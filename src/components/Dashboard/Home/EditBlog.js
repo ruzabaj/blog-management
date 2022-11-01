@@ -22,7 +22,7 @@ const Edit = () => {
                 rows="1"
                 cols="0"
                 minLength="05"
-                maxLength="25"
+                maxLength="50"
                 placeholder="Title"
                 className="title"
                 id="title"
@@ -86,12 +86,6 @@ const Edit = () => {
            >
             POST
           </button>
-          <div className="upload-image-class">
-            <label>Uploaded image</label>
-          <img 
-          // src={image}
-           alt="pic" classname="uploaded-image"/>
-          </div>
         </div>
       </div>
     </div>
