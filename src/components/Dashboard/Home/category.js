@@ -1,51 +1,30 @@
+import axios from 'axios';
 const CategoryButton = ({ setUserData, Data, activeCategory }) => {
  
-  const showCategoryCard = (item) => {
-    const updatedId = Data.filter((element) => {
-      return element.category === item;
-    });
-    setUserData(updatedId);
-  };
+  const filterBlog=(id)=>{
+    axios.get(`http://api.allureinternational.com.np/api/filter-blog/${id}`)
+    .then((res)=>{
+      console.log(res)
+      axios.get('http://api.allureinternational.com.np/api/get-blog-details/3')
+      .then((res)=>{
+        console.log(res)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
   return (
     <div className="category-btns">
       {activeCategory.map((element,index)=>(
-        <button className='btn-category'>
+        <button className='btn-category'onClick={()=>{filterBlog(element.id)}}>
+          {element.id}
           {element.category_name}
         </button>
       ))}
-      <button
-        className="btn-category"
-        onClick={() => showCategoryCard("Travel")}
-      >
-        Travel
-      </button>
-      <button
-        className="btn-category"
-        onClick={() => showCategoryCard("Music")}
-      >
-        Music
-      </button>
-      <button className="btn-category" onClick={() => showCategoryCard("Food")}>
-        Food
-      </button>
-      <button
-        className="btn-category"
-        onClick={() => showCategoryCard("Comedy")}
-      >
-        Comedy
-      </button>
-      <button
-        className="btn-category"
-        onClick={() => showCategoryCard("Lifestyle")}
-      >
-        Lifestyle
-      </button>
-      <button
-        className="btn-category"
-        onClick={() => showCategoryCard("Fiction")}
-      >
-        Fiction
-      </button>
     </div>
   );
 };

@@ -112,7 +112,7 @@ const Create = () => {
                 rows="10"
                 cols="100"
                 minLength="05"
-                maxLength="1000"
+                maxLength="30s00"
                 placeholder="Description"
                 className="description"
                 id="description"
@@ -120,7 +120,7 @@ const Create = () => {
                 value={content.description}
               />
               <p style={{ color: "grey", size: "10px" }}>
-                Do not exceed more than 1000 characters.
+                Do not exceed more than 3000 characters.
               </p>
             </div>
           </form>

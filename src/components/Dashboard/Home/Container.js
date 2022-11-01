@@ -22,7 +22,7 @@ const Container = ({activeBlog, next,allBlog}) => {
                     <button className="btn-more" onClick={next}>
                       Read More
                     </button>
-                    <Delete />
+                    <Delete element={element} />
                     <button className="btn-edit">Edit</button>
                   </div>
                 </div>
