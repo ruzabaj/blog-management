@@ -112,7 +112,7 @@ const Create = () => {
                 rows="10"
                 cols="100"
                 minLength="05"
-                maxLength="30s00"
+                maxLength="3000"
                 placeholder="Description"
                 className="description"
                 id="description"
