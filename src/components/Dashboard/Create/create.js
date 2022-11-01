@@ -10,7 +10,7 @@ const Create = () => {
     status: "",
   });
   const [category, setCategory] = useState([]);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     axios

@@ -48,8 +48,8 @@ const Home = () => {
 
   const switchPage = (element) => {
     console.log("clicked readmore",element.id);
-    let { categoryId, id, description, image, status, title}= element;
-    localStorage.setItem("category id",categoryId)
+    let { categoryid, id, description, image, status, title}= element;
+    localStorage.setItem("category_id",categoryid)
     localStorage.setItem("id",id)
     localStorage.setItem("description",description)
     localStorage.setItem("img",image)

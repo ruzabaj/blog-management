@@ -14,7 +14,7 @@ const Blog = () => {
   const [id, setId] = useState();
   const [description, setDescription] = useState();
   const [title, setTitle] = useState();
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
   const [categoryId, setCategoryId] = useState();
   const [status, setStatus] = useState();
 
@@ -27,7 +27,7 @@ const Blog = () => {
 useEffect(()=>{
 setId(localStorage.getItem('id'))
 setDescription(localStorage.getItem('description'))
-setCategoryId(localStorage.getItem('category id'))
+setCategoryId(localStorage.getItem('category_id'))
 setImage(localStorage.getItem('img'))
 setStatus(localStorage.getItem('status'))
 setTitle(localStorage.getItem('title'))
@@ -48,12 +48,12 @@ setTitle(localStorage.getItem('title'))
           {/* {userData.map((element) => ( */}
             <div className='row'>
               <img
-                      src={image}
+                      src={image}     
                       className="card-img"
                       alt="user-profile"
                       />
               <h5 className="card-title">{id}</h5>
-              <h5 className="card-title">{categoryId}</h5>
+              <h5 className="card-title">category Id:{categoryId}</h5>
               <h5 className="card-title">{title}</h5>
               <p className="card-text">{description}</p>
               <p className="card-text">{status}</p>
