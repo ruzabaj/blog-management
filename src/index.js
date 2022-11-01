@@ -11,6 +11,7 @@ import Create from "./components/Dashboard/Create";
 import Category from "./components/Dashboard/Category";
 import Blog from "./components/Dashboard/BlogPages";
 import EditCategory from "./components/Dashboard/Category/EditCategory";
+import EditBlog from "./components/Dashboard/Home/EditBlog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
           <Route exact path="/create-blog" element={<Create />}></Route>
           <Route exact path="/create-category" element={<Category/>}></Route> 
           <Route exact path="/edit-category" element={<EditCategory/>}></Route> 
+          <Route exact path="/edit-blog" element={<EditBlog/>}></Route> 
           <Route exact path="/blog" element={<Blog />}></Route>
       </Routes>
     </Router>

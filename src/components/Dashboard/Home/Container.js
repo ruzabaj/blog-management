@@ -1,4 +1,5 @@
 import Delete from "./modal";
+import { Link } from "react-router-dom";
 
 const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
  
@@ -22,7 +23,7 @@ const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
                       Read More
                     </button>
                     <Delete element={element} setAllBlog={setAllBlog}/>
-                    <button className="btn-edit">Edit</button>
+                    <Link to="/edit-blog"><button className="btn-edit">Edit</button></Link>
                   </div>
                 </div>
               </div>
