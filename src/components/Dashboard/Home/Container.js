@@ -1,11 +1,13 @@
-import React from 'react'
+
 import Delete from "./modal";
 
-const Container = ({userData, next}) => {
+
+const Container = ({userData, next,allBlog}) => {
+ 
   return (
     <div className="container">
         <div className="row">
-          {userData.map((element) => (
+          {allBlog.map((element) => (
             <div className="col-4" key={element.id}>
               <div className="card">
                 <img

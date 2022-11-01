@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from 'axios';
+import React,{useState, useEffect} from 'react'
 import Navbar from "../Navbar";
 import Footer from "../footer";
 import Image from "../Carousel/Image";
@@ -10,6 +11,23 @@ import Container from "./Container";
 
 const Home = () => {
   const [userData, setUserData] = useState(Data);
+  const [activeBlog, setActiveBlog]= useState([]);
+  const [allBlog, setAllBlog]= useState([]);
+
+  useEffect(()=>{
+    axios.get(`http://api.allureinternational.com.np/api/get-all-blog`)
+    .then((response)=>{
+      setAllBlog(response.data.data)
+    })
+    axios.get('http://api.allureinternational.com.np/api/get-all-active-category')
+    .then((res)=>{
+      setActiveBlog(res.data.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  },[])
+  
 
   const navigate = useNavigate();
 
@@ -22,8 +40,8 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <CategoryButton setUserData={setUserData} Data={Data}/>
-      <Container userData={userData} next={switchPage}/>
+      <CategoryButton setUserData={setUserData} Data={Data} activeBlog={activeBlog}/>
+      <Container userData={userData} next={switchPage} allBlog={allBlog}/>
       <Footer />
     </div>
   );
