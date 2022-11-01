@@ -1,6 +1,6 @@
 import Delete from "./modal";
 
-const Container = ({activeBlog, next,allBlog}) => {
+const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
  
   return (
     <div className="container">
@@ -21,7 +21,7 @@ const Container = ({activeBlog, next,allBlog}) => {
                       {element.id}
                       Read More
                     </button>
-                    <Delete element={element} />
+                    <Delete element={element} setAllBlog={setAllBlog}/>
                     <button className="btn-edit">Edit</button>
                   </div>
                 </div>

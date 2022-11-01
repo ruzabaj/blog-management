@@ -63,8 +63,8 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <CategoryButton setUserData={setUserData} Data={Data} activeCategory={activeCategory}/>
-      <Container userData={userData} next={switchPage} allBlog={allBlog}  activeBlog={activeBlog}/>
+      <CategoryButton setUserData={setUserData}  activeCategory={activeCategory}/>
+      <Container userData={userData} next={switchPage} allBlog={allBlog}  activeBlog={activeBlog} setAllBlog={setAllBlog}/>
       <Footer />
     </div>
   );

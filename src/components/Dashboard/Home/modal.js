@@ -2,18 +2,26 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function ModalDialog({element}) {
+function ModalDialog({element, setAllBlog}) {
   const [isShow, setInvokeModal] = useState(false);
-  const [deleteBlog, setDeleteBlog] = useState();
 
   const deleteblog = (id) => {
-    alert(id)
     axios
       .delete(`http://api.allureinternational.com.np/api/delete-blog/${id}`)
       .then((res) => {
-        console.log(res);
-        setDeleteBlog("delete, res.data.data.id");
-      });
+        console.log(res)
+        axios.get('http://api.allureinternational.com.np/api/get-all-blog')
+        .then((response)=>{
+          console.log(response);
+          setAllBlog(response.data.data)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
   };
   const initModal = (id) => {
     return setInvokeModal(!isShow);
