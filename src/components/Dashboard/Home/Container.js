@@ -1,8 +1,9 @@
 import Delete from "./modal";
 import { Link } from "react-router-dom";
+;
 
 const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
- 
+
   return (
     <div className="container">
         <div className="row">

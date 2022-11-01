@@ -1,9 +1,17 @@
 import React from 'react';
 import "../../../sass/create.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowAltCircleLeft} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 const Edit = () => {
+  const navigate=useNavigate();
+  const backtoHome=()=>{
+    navigate("/home")
+  }
   return (
     <div>
+        <FontAwesomeIcon icon={faArrowAltCircleLeft} onClick={backtoHome} className="back"/>
       <div className="create-bg"></div>
       <div className="create-width">
         <div className="create-center-align">
