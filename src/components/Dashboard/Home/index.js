@@ -19,7 +19,12 @@ const Home = () => {
     axios.get(`http://api.allureinternational.com.np/api/get-all-blog`)
     .then((response)=>{
       setAllBlog(response.data.data)
+      console.log(response.data.data)
     })
+    .catch((err)=>{
+      console.log(err)
+    })
+
     axios.get('http://api.allureinternational.com.np/api/get-all-active-category')
     .then((res)=>{
       setActiveCategory(res.data.data)
@@ -27,6 +32,7 @@ const Home = () => {
     .catch((err)=>{
       console.log(err)
     })
+
     axios.get('http://api.allureinternational.com.np/api/get-active-blog')
     .then((res)=>{
       setActiveBlog(res.data.data)
@@ -40,10 +46,18 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const switchPage = () => {
-    console.log("clicked readmore");
+  const switchPage = (element) => {
+    console.log("clicked readmore",element.id);
+    let { categoryId, id, description, image, status, title}= element;
+    localStorage.setItem("category id",categoryId)
+    localStorage.setItem("id",id)
+    localStorage.setItem("description",description)
+    localStorage.setItem("img",image)
+    localStorage.setItem("status",status)
+    localStorage.setItem("title",title)
+
     navigate("/blog");
-  };
+    };
   
   return (
     <div>

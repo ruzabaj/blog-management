@@ -1,6 +1,4 @@
-
 import Delete from "./modal";
-
 
 const Container = ({activeBlog, next,allBlog}) => {
  
@@ -19,7 +17,8 @@ const Container = ({activeBlog, next,allBlog}) => {
                   <h5 className="card-title">{element.title}</h5>
                   <p className="card-text">{element.description}</p>
                   <div className="read-edit-delete">
-                    <button className="btn-more" onClick={next}>
+                    <button className="btn-more" onClick={()=>next(element)} >
+                      {element.id}
                       Read More
                     </button>
                     <Delete element={element} />
