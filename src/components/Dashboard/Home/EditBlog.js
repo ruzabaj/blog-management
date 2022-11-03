@@ -63,7 +63,7 @@ const Edit = () => {
                 placeholder="Title"
                 className="title"
                 id="title"
-                // value={content.title}
+                value={title}
                 onChange={(e)=>setTitle(e.target.value)}
               />
               <p style={{ color: "grey", size: "10px" }}>
@@ -73,7 +73,7 @@ const Edit = () => {
                 <select
                   name="category-list"
                   id="category"
-                  // value={content.category}
+                  value={categoryID}
                   onChange={(e)=>setCategoryID(e.target.value)}
                 >
                   {/* {category.map((element, index) => (
@@ -85,7 +85,7 @@ const Edit = () => {
                 <select
                   name="active-status"
                   id="status"
-                  // value={content.status}
+                  value={status}
                   onChange={(e)=>setStatus(e.target.value)}
 
                 >
@@ -112,7 +112,7 @@ const Edit = () => {
                 className="description"
                 id="description"
                 onChange={(e)=>setDescription(e.target.value)}
-                // value={content.description}
+                value={description}
               />
               <p style={{ color: "grey", size: "10px" }}>
                 Do not exceed more than 3000 characters.
