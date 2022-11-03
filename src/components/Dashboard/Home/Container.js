@@ -1,14 +1,14 @@
 import Delete from "./modal";
 import { useNavigate } from "react-router-dom";
-import {useEffect} from 'react';
+import { useEffect } from "react";
 
 const Container = ({
   activeBlog,
   next,
   allBlog,
   setAllBlog,
-  filter,
   filteredBlog,
+  filter,
 }) => {
   let navigate = useNavigate();
 
@@ -26,51 +26,15 @@ const Container = ({
     navigate("/edit-blog");
   };
   useEffect(() => {
-    console.log("hi",filteredBlog);
-    console.log(filter.current,"current")
-  
-  }, [])
+    console.log("hi", filteredBlog);
+    // console.log(filter.current,"current")
+    console.log(filter, "all");
+  }, []);
   return (
     <div className="container">
       <div className="row">
-     
-        {filter.current
-          ?  
-          filteredBlog.map((element) => (
-            
-            <div className="col-4" key={element.id}>
-              <div className="card">
-                <img
-                  src={element.image}
-                  className="card-img"
-                  alt="user-profile"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{element.title}</h5>
-                  <p className="card-text">{element.description}</p>
-                  <div className="read-edit-delete">
-                    <button
-                      className="btn-more"
-                      onClick={() => next(element)}
-                    >
-                      {element.id}
-                      Read More
-                    </button>
-                    <Delete element={element} setAllBlog={setAllBlog} />
-                    <button
-                      className="btn-edit"
-                      onClick={() => editBlog(element)}
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))
-          
-            :
-            allBlog.map((element) => (
+        {filter
+          ? filteredBlog.map((element) => (
               <div className="col-4" key={element.id}>
                 <div className="card">
                   <img
@@ -101,7 +65,37 @@ const Container = ({
                 </div>
               </div>
             ))
-            }
+          : allBlog.map((element) => (
+              <div className="col-4" key={element.id}>
+                <div className="card">
+                  <img
+                    src={element.image}
+                    className="card-img"
+                    alt="user-profile"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{element.title}</h5>
+                    <p className="card-text">{element.description}</p>
+                    <div className="read-edit-delete">
+                      <button
+                        className="btn-more"
+                        onClick={() => next(element)}
+                      >
+                        {element.id}
+                        Read More
+                      </button>
+                      <Delete element={element} setAllBlog={setAllBlog} />
+                      <button
+                        className="btn-edit"
+                        onClick={() => editBlog(element)}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
       </div>
     </div>
   );
