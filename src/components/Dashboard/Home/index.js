@@ -1,20 +1,20 @@
 import axios from 'axios';
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect,useRef} from 'react'
 import Navbar from "../Navbar";
 import Footer from "../footer";
 import Image from "../Carousel/Image";
 import CategoryButton from "./category";
 import "../../../sass/home.scss";
-import Data from "../Data";
 import { useNavigate } from "react-router-dom";
 import Container from "./Container";
 
 const Home = () => {
-  const [userData, setUserData] = useState(Data);
   const [activeBlog, setActiveBlog]= useState([]);
   const [activeCategory, setActiveCategory]= useState([]);
   const [allBlog, setAllBlog]= useState([]);
+  const[filteredBlog, setFilteredBlog]=useState([]);
 
+  const filter= useRef(false)
   useEffect(()=>{
     axios.get(`http://api.allureinternational.com.np/api/get-all-blog`)
     .then((response)=>{
@@ -43,6 +43,19 @@ const Home = () => {
  
   },[])
   
+  const filterBlog=(id)=>{
+    console.log(filter)
+    axios.get(`http://api.allureinternational.com.np/api/filter-blog/${id}`)
+    .then((res)=>{
+      console.log(res.data.data)
+      setFilteredBlog(res.data.data)
+      filter.current=true
+      console.log(filter)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
 
   const navigate = useNavigate();
 
@@ -63,8 +76,10 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <CategoryButton setUserData={setUserData}  activeCategory={activeCategory}/>
-      <Container userData={userData} next={switchPage} allBlog={allBlog}  activeBlog={activeBlog} setAllBlog={setAllBlog}/>
+      <CategoryButton  activeCategory={activeCategory} filterBlog={filterBlog}/>
+      <Container  next={switchPage} allBlog={allBlog}  activeBlog={activeBlog} setAllBlog={setAllBlog} 
+      filter={filter} 
+      filteredBlog={filteredBlog}/>
       <Footer />
     </div>
   );
