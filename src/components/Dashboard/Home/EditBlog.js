@@ -1,20 +1,57 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import "../../../sass/create.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowAltCircleLeft} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Edit = () => {
+  const [id, setId] =useState();
+  const [title, setTitle] =useState();
+  const [categoryID, setCategoryID] =useState();
+  const [status, setStatus]= useState();
+  const [image, setImage]= useState();
+  const [description, setDescription]= useState();
+
+  // const [editBlog, setEditBlog]= useState();
   const navigate=useNavigate();
   const backtoHome=()=>{
     navigate("/home")
   }
+  useEffect(() => {
+    setId(localStorage.getItem('id'))
+    setTitle(localStorage.getItem('title'));
+    setCategoryID(localStorage.getItem('category id'));
+    setStatus(localStorage.getItem('status'))
+    setImage(localStorage.getItem('image'))
+    setDescription(localStorage.getItem('description'))
+  }, []);
+
+ const handlePost=()=>{
+  axios.post(`http://api.allureinternational.com.np/api/update-blog/${id}`,
+  {
+    _method: "PATCH",
+    title:title,
+    description:description,
+    status:status,
+    image:image,
+    category_id:categoryID
+  })
+  .then((res)=>{
+    console.log(res)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+ }
   return (
     <div>
         <FontAwesomeIcon icon={faArrowAltCircleLeft} onClick={backtoHome} className="back"/>
-      <div className="create-bg"></div>
+      <div className="create-bg">
       <div className="create-width">
         <div className="create-center-align">
+    
+          {console.log(id,title)}
           <form>
             <div className="text-area">
               <label>Title:</label>
@@ -27,7 +64,7 @@ const Edit = () => {
                 className="title"
                 id="title"
                 // value={content.title}
-                // onChange={handleChange}
+                onChange={(e)=>setTitle(e.target.value)}
               />
               <p style={{ color: "grey", size: "10px" }}>
                 Do not exceed more than 25 characters.
@@ -37,7 +74,7 @@ const Edit = () => {
                   name="category-list"
                   id="category"
                   // value={content.category}
-                  // onChange={handleChange}
+                  onChange={(e)=>setCategoryID(e.target.value)}
                 >
                   {/* {category.map((element, index) => (
                     <option value={element.id} key={index}>
@@ -49,7 +86,8 @@ const Edit = () => {
                   name="active-status"
                   id="status"
                   // value={content.status}
-                  // onChange={handleChange}
+                  onChange={(e)=>setStatus(e.target.value)}
+
                 >
                   <option value="#"></option>
                   <option value="active">active</option>
@@ -58,7 +96,7 @@ const Edit = () => {
                 <input
                   type="file"
                   id="file"
-                  // onChange={imageUpload}
+                  onChange={(e)=>setImage(e.target.value)}
                   className="postimage"
                   name="file"
                 />
@@ -73,7 +111,7 @@ const Edit = () => {
                 placeholder="Description"
                 className="description"
                 id="description"
-                // onChange={handleChange}
+                onChange={(e)=>setDescription(e.target.value)}
                 // value={content.description}
               />
               <p style={{ color: "grey", size: "10px" }}>
@@ -82,11 +120,12 @@ const Edit = () => {
             </div>
           </form>
           <button type="submit" className="post"
-          //  onClick={handlePost}
+           onClick={handlePost}
            >
             POST
           </button>
         </div>
+      </div>
       </div>
     </div>
   )

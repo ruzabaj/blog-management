@@ -1,9 +1,22 @@
 import Delete from "./modal";
-import { Link } from "react-router-dom";
-;
+import { useNavigate } from "react-router-dom";
 
 const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
-
+  let navigate = useNavigate();
+  
+const editBlog=(element)=>{
+  console.log("clicked on edit blog");
+  let { id, title, image, description, category_id, status } = element;
+  localStorage.setItem("id", id);
+  localStorage.setItem("title", title);
+  localStorage.setItem("image", image);
+  localStorage.setItem("description", description);
+  localStorage.setItem("category id", category_id);
+  localStorage.setItem("status", status);
+  console.log("object", element);
+  console.log("category id", element.category_id);
+  navigate("/edit-blog");
+}
   return (
     <div className="container">
         <div className="row">
@@ -24,7 +37,7 @@ const Container = ({activeBlog, next,allBlog, setAllBlog}) => {
                       Read More
                     </button>
                     <Delete element={element} setAllBlog={setAllBlog}/>
-                    <Link to="/edit-blog"><button className="btn-edit">Edit</button></Link>
+                    <button className="btn-edit" onClick={()=>editBlog(element)}>Edit</button>
                   </div>
                 </div>
               </div>

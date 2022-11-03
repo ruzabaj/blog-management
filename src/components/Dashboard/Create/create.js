@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../../sass/create.scss";
 import axios from "axios";
+import Test from './test';
 
 const Create = () => {
   const [content, setContent] = useState({
@@ -45,6 +46,7 @@ const Create = () => {
       .catch((err) => {
         console.log(err);
       });
+      <Test/>
   };
   const handleChange = (event) => {
     const newdata = { ...content };
@@ -65,7 +67,7 @@ const Create = () => {
                 rows="1"
                 cols="0"
                 minLength="05"
-                maxLength="25"
+                maxLength="50"
                 placeholder="Title"
                 className="title"
                 id="title"
