@@ -2,16 +2,15 @@
 
 .footer {
   background-color: var(--theme-color);
-  height: 350px;
+  height: 400px;
   width: 100%;
   justify-content: space-between;
   .footer-content {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 20px 0px;
-
-    .about {
+    .about ,.blogs-link {
+      margin: 35px 0px;
       h5 {
         color: var(--nav-text);
       }
@@ -19,48 +18,43 @@
         list-style: none;
         li {
           color: var(--nav-text);
-        }
-      }
-    }
-    .blogs-link {
-      h5 {
-        color: var(--nav-text);
-      }
-      ul {
-        list-style: none;
-        li {
-          color: var(--nav-text);
+          padding: 08px 0px;
         }
       }
     }
   }
-  .horizontal {
-    width: 100%;
-    border-bottom: 1px solid var(--nav-text);
-  }
-  .copyright {
-    text-align: right;
-    color: var(--nav-text);
-    padding: 05px 20px;
-  }
-}
-.social-media {
-  display: flex;
-  flex-direction: column;
-  h4 {
-    color: var(--nav-text);
-    margin: 10px;
-  }
-  .social-media-icon {
+  .footer-content-down{
     display: flex;
-    .insta,
-    .facebook,
-    .twitter {
-      margin: 15px 08px;
-      padding: 01px 02px;
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .social-media {
+      display: flex;
+      flex-direction: column;
+      h4 {
+        color: var(--nav-text);
+        margin: 10px;
+      }
+      .social-media-icon {
+        display: flex;
+        .insta,
+        .facebook,
+        .twitter {
+          margin: 15px 08px;
+          padding: 01px 02px;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+        }
+      }
+    }
+    
+    .horizontal {
+      width: 100%;
+      border-bottom: 1px solid var(--nav-text);
+    }
+    .copyright , .copyright-message{
+      color: var(--nav-text);
     }
   }
 }

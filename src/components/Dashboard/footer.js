@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-content">
         <img src="logo.jpg" alt="logo" className="logo" />
         <div className="about">
-          <h5 className="about">About</h5>
+          <h5 >About</h5>
           <ul>
             <li>Career</li>
             <li>Privacy Policy</li>
@@ -25,8 +25,8 @@ const Footer = () => {
       </div>
 
       <div className="horizontal" />
-
-      <div className="social-media">
+<div className="footer-content-down">
+<div className="social-media">
         <div className="social-media-icon">
           <img src="insta.jpg" alt="insta" className="insta" />
           <img src="facebook.png" alt="facebook" className="facebook" />
@@ -37,6 +37,8 @@ const Footer = () => {
       <p className="copyright-message">
         With a commitment to quality content for our community.
       </p>
+</div>
+      
     </div>
   );
 };
