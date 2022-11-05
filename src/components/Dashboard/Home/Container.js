@@ -82,7 +82,6 @@ const Container = ({
                         className="btn-more"
                         onClick={() => next(element)}
                       >
-                        {element.id}
                         Read More
                       </button>
                       <Delete element={element} setAllBlog={setAllBlog} />
