@@ -41,9 +41,7 @@ const Edit = () => {
       });
   }, []);
 
-  // const imageUpload = (event) => {
-  //   console.log(event.target.files, "image detail");
-  // };
+
   const handlePost = () => {
     console.log(categoryID, "id");
     const config={
@@ -70,6 +68,7 @@ const Edit = () => {
       .catch((err) => {
         console.log(err);
       });
+      navigate("/home")
   };
   return (
     <div>
