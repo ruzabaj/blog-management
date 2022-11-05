@@ -90,6 +90,7 @@ const Home = () => {
         setAllBlog={setAllBlog}
         filter={filter}
         filteredBlog={filteredBlog}
+        activeCategory={activeCategory}
       />
       <div className="all-blog-btn"></div>
       <Footer />

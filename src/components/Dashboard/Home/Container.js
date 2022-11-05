@@ -9,17 +9,20 @@ const Container = ({
   setAllBlog,
   filteredBlog,
   filter,
+  activeCategory
 }) => {
   let navigate = useNavigate();
 
   const editBlog = (element) => {
-    console.log("clicked on edit blog");
+    console.log("clicked on edit blog",element.category.category_name);
     let { id, title, image, description, category_id, status } = element;
+    let {category_name}=element.category
     localStorage.setItem("id", id);
     localStorage.setItem("title", title);
     localStorage.setItem("image", image);
     localStorage.setItem("description", description);
-    localStorage.setItem("category id", category_id);
+    localStorage.setItem("category_id", category_id);
+    localStorage.setItem("category name", category_name);
     localStorage.setItem("status", status);
     console.log("object", element);
     console.log("category id", element.category_id);
@@ -27,7 +30,6 @@ const Container = ({
   };
   useEffect(() => {
     console.log("hi", filteredBlog);
-    // console.log(filter.current,"current")
     console.log(filter, "all");
   }, []);
   return (
