@@ -80,3 +80,17 @@ body {
   height: 600px;
   object-fit: cover;
 }
+ .get-all-blog {
+  width: 150px;
+  height: auto;
+  padding: 10px 0px;
+  margin: 20px;
+  color: var(--home-more-btn);
+  border-radius: 10px;
+  border: 0px none;
+  &:hover {
+    background-color: var(--text);
+    color: var(--btn-category-text);
+    font-weight: bold;
+  }
+}

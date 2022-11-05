@@ -81,7 +81,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Image />
-      <button onClick={getAll}>Get All Blog</button>
+      <button onClick={getAll} className="get-all-blog">Get All Blog</button>
       <CategoryButton activeCategory={activeCategory} filterBlog={filterBlog} />
       <Container
         next={switchPage}
